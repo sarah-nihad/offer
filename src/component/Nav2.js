@@ -1,0 +1,360 @@
+import React from 'react';
+import './nav1.css'
+import { Navbar, Nav, Row, Col ,ButtonToolbar,SplitButton,Dropdown,InputGroup,FormControl} from 'react-bootstrap';
+import { Link,Redirect } from 'react-router-dom';
+import axios from 'axios';
+import host from './host';
+import Component from "@reactions/component";
+import themeable from 'react-themeable';
+import Autosuggest from 'react-autosuggest';
+
+import { Popover, Pane, Text, Avatar , SearchInput} from 'evergreen-ui';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
+
+var languages = [];
+var id='';
+const getSuggestions = value => {
+
+  const inputValue = value.trim().toLowerCase();
+  const inputLength = inputValue.length;
+
+// if (inputLength!==0) {
+//   languages.filter(lang =>
+//     console.log(lang._id)
+ 
+//     );
+// }
+
+  return inputLength === 0 ? [] : languages.filter(lang =>
+
+    lang.name.toLowerCase().slice(0, inputLength) === inputValue
+    // &&
+    // lang._id=== id
+    
+  );
+};
+
+function getSuggestionValue(suggestion) {
+  id=suggestion._id
+  return suggestion.name
+  
+}
+// const getSuggestionValue = suggestion => (suggestion.name);
+
+// Use your imagination to render suggestions.
+const renderSuggestion = suggestion => (
+  <div>
+    {suggestion.name}
+  </div>
+);
+
+const theme = {
+  suggestion: {
+    color: 'red'
+  },
+  suggestionsContainer: {
+    color: 'red',
+    backgroundColor:'red'
+  }
+};
+
+
+class Nav2 extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false,
+      data:[],
+      data1:[],
+      searchData:[],
+      description:'',
+      suggestions: [],
+      value: '',
+
+      type_value:'',
+      type:'',
+      uptime:'',
+      logo:'',
+      
+      _id:'',
+      name:'',
+      location:'',
+      category:''
+
+    }
+  }
+
+
+
+  onChange = (event, { newValue }) => {
+
+ //   var name=newValue.split
+     //  var res = name.split("  ");
+    this.setState({
+      value: newValue
+    });
+
+  };
+  onSuggestionsFetchRequested = ({ value }) => {
+
+    this.setState({
+      suggestions: getSuggestions(value)
+    });
+  };
+
+  // Autosuggest will call this function every time you need to clear suggestions.
+  onSuggestionsClearRequested = () => {
+    
+    this.setState({
+      suggestions: []
+    });
+  };
+
+  componentDidMount(){  
+    axios.get(host+`api/v1/sections` )
+    .then(res=>{
+      //console.log(res.data.section)
+      this.setState({
+        data:res.data.section
+      })
+    })
+    .catch(err=>{console.log('error:' + err);
+    })
+    
+
+
+    axios.get(host+`api/v1/cat/search` )
+    .then(res=>{
+      console.log(res.data.visited)
+      languages=res.data.visited;
+      // this.setState({
+      //   searchData:res.data.visited
+      // })
+    })
+    .catch(err=>{console.log('error:' + err);
+    })
+
+
+
+  }
+  openModal() {
+    this.setState({
+      visible: true
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      visible: false
+    });
+  }
+
+  render() {
+    const { value, suggestions } = this.state;
+    const theme = themeable(this.props.theme);
+    // Autosuggest will pass through all these props to the input.
+    const inputProps = {
+      placeholder: '',
+      value,
+      width:'400px',
+      onChange: this.onChange,
+     
+    };
+   
+    return (
+      <div >
+
+
+
+
+        <Navbar expand="lg" id="navmai">
+
+
+          <Navbar.Brand style={{paddingLeft:'3%'}}>  <img src={require('./asdf.png')} id='img22' /></Navbar.Brand> 
+          
+          <Navbar.Brand style={{paddingLeft:'3%'}}>  <img src={require('./with.png')} id='img223' /></Navbar.Brand> 
+           <Navbar.Toggle aria-controls="basic-navbar-nav" /> 
+          <Navbar.Collapse id="basic-navbar-nav"> 
+            <Nav className="mr-auto">
+          
+            </Nav>
+        
+
+      
+       <div id='itemnav' >
+         <div  id='searchwidth'>
+         <InputGroup  
+          >
+       
+    <InputGroup.Prepend  id='prep'  >
+      
+      <InputGroup.Text id="basic-addon1" style={{marginLeft:-39,cursor:"pointer"}} className='ss' onClick={()=>{
+
+if (id) {
+  window.location.href=`/profile?id=${id}`  
+}
+
+      }}>
+
+        <i className="fas fa-search" id='iconcolor'></i>
+        </InputGroup.Text>
+
+      <Autosuggest  style={{color:'red'}}
+      id="Autosuggest"
+
+ suggestions={suggestions}
+ onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+ onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+ getSuggestionValue={getSuggestionValue}
+ renderSuggestion={renderSuggestion}
+
+ inputProps={inputProps}
+/>
+    </InputGroup.Prepend>
+  
+  
+  </InputGroup>
+
+</div>
+
+  
+
+            <div className="dropdown">  
+              <div id="contact">  الاقسام </div> 
+            
+       <div className="dropdown-content">
+       {this.state.data.map((item =>
+                <div>
+            
+            <ButtonToolbar  id='left' key={item._id}>
+
+{[ 'left'].map(direction => (
+  <Component initialState={{ cat: [],data:[] }}>
+  {({ state, setState }) => (
+   
+<SplitButton
+drop={direction}
+variant="none"
+title={  <div key={item._id}
+  onClick={()=>{
+ 
+  axios.get(host +`api/v1/cat/get/?section_id=${item._id}` )
+  .then(res=>{ 
+    console.log(res.data.category);
+    
+    setState({
+      cat:res.data.category
+    })
+
+  })
+  .catch(err=>{console.log('error:' + err);
+  })
+
+
+
+}} >   <img src={item.logo} id='navsectionlogo'  /> {item.name} </div> }
+id={`dropdown-button-drop-${direction}`}
+key={direction}
+>
+
+
+
+{state.cat.map((item1 =>
+
+<Dropdown.Item eventKey="1"  >
+  
+  <div onClick={()=>{
+    window.location.href = `/profile?id=${item1._id}`;
+
+  }} >
+  
+   
+
+<p id='left1'key={item1._id} >{item1.name} </p>  
+
+
+    
+   
+      </div></Dropdown.Item>
+))}
+</SplitButton>
+// </div>
+  )}
+  </Component>
+))}
+</ButtonToolbar>
+             
+               
+   
+                 
+                  </div> 
+          
+     
+               ))}
+ </div>
+           
+ </div>
+
+           
+       <Link to= './Login' id="contact">  تسجيل الدخول </Link>
+     
+           
+     
+         <Link to= './' id="contact"> الرئيسية </Link>
+
+                 <Popover 
+              content={
+                <Pane
+                  width={200}
+                  height={50}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  flexDirection="column"
+                >
+                <button  id='out'
+                onClick={()=>{ 
+                  cookies.remove("token");
+                  window.location.href= "/"
+                }}
+                > تسجيل الخروج</button>
+                </Pane>
+              }
+            >
+              <Avatar
+                 src={require('./d.jpg' )} 
+                name=""
+                size={30}
+                id='hh'
+              />
+            </Popover>
+           
+         </div>
+
+         
+          
+          
+          </Navbar.Collapse>
+
+        </Navbar>
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    );
+  }
+}
+
+export default Nav2;
