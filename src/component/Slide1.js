@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {Carousel} from 'react-bootstrap';
 import './nav1.css';
 import axios from 'axios';
+import host from './host';
+import Context from './context';
 // class ControlledCarousel extends Component {
     class Slide1 extends Component{
    
@@ -14,26 +16,13 @@ import axios from 'axios';
         index: 0,
         direction: null,
         data:[],
-        description:'',
-        type_value:'',
-        type:'',
-        uptime:'',
-        logo:'',
-        Image:''
+     
+      
+       
       };
     
     }
-    componentDidMount(){  
-      axios.get('https://rocky-springs-77202.herokuapp.com/api/v1/banner/' )
-      .then(res=>{
-        //console.log(res.data.banner)
-        this.setState({
-          data:res.data.banner
-        })
-      })
-      .catch(err=>{console.log('error:' + err);
-      })
-    }
+    
     handleSelect(selectedIndex, e) {
       this.setState({
         index: selectedIndex,
@@ -45,17 +34,21 @@ import axios from 'axios';
       const { index, direction } = this.state;
   
       return (
+        <Context.Consumer>{ctx => {
+          return (
         <Carousel
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
         >
-          {this.state.data.map((item =>
+          {ctx.value.datas.map((item =>
+     
        
           <Carousel.Item>
+            
                <div id='ss'>
-            <img  src={item.Image}  id='imgslid'/> 
-{/* <img src={require('./asdf.png')} id='imgslid' /> */}
+            <img  src={'https://www.orothe.com/api/v1/'+item.Image}  id='imgslid'/> 
+  {/* <img src={require('./350.jpg')} id='imgslid' />   */}
 
             <Carousel.Caption>
             <div>{item.description}</div>
@@ -68,6 +61,10 @@ import axios from 'axios';
            ))}
          
         </Carousel>
+           )
+          }}
+
+          </Context.Consumer>
       );
     }
   }

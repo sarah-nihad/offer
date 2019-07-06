@@ -13,11 +13,28 @@
   /* Bottom right text */
   .text-block {
     position: absolute;
+    bottom: 75%;
+    right: 0px;
+  
+     /* padding-left: 20px; */
+    padding-right: 20px; 
+  }
+
+  .text-block3 {
+    position: absolute;
     bottom: 80%;
     right: 0px;
   
      /* padding-left: 20px; */
     padding-right: 20px; 
+  }
+  #img223sss{
+      height: 35px;
+  }
+  #img2233{
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
   }
 #star{
    display: flex;
@@ -28,12 +45,33 @@
 #navrow{
     width: 100%;
 }
-
+#aaa{
+    text-decoration: none;
+    color: rgb(160, 160, 160);
+}
+#fotspan{
+  padding-top: 20px;
+  color: rgb(160, 160, 160);
+}
 #react-autowhatever-1{
     background: white;
 }
 .auto{
     margin-left: 40px;
+}
+#fotrow{
+   
+    padding-top: 10px;
+}
+#out{
+    background-color: #F57224;
+    color: #EFEFEF;
+    border-radius: 50px;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+
 }
 #navmain{
     background-image:linear-gradient(to right,#003E52,#1791AB); 
@@ -42,11 +80,17 @@
     align-items: center;
 }
 #left{
-    direction: rtl;
+    /* direction: rtl; */
     z-index: 3;
+   display: flex;
+ align-items: flex-end;
+    /* float: right; */
+    width: 100%;
 }
 #navsectionlogo{
+    width: 30px;
     height: 30px;
+    border-radius: 300px;
 }
 
 #left1{
@@ -81,22 +125,24 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100%;
 }
 #fot{
     height: 100px;
     background-color: #424242;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 #imgslid{
-    height: 350px;
+    height: auto;
     width: 100%;
 }
 #ss{
-    height: 350px;
+    /* height: 350px;
     width: 100%;
- 
+  */
     /* background-color: #424242; */
 }
 #icon{
@@ -118,7 +164,7 @@
     display: flex;
    align-items: center;
    justify-content: center;
-  
+ 
 
     Color:#424242;
     font-size:22px;
@@ -128,8 +174,8 @@
 #box{
     box-shadow: 1px 1px 3px rgb(182, 133, 133);
     background-color: #fffdfd;
-    width: 15%;
-    border-radius: 10px;
+   min-width: 15%;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,31 +193,49 @@
     /* height: 25px; */
     width: 40px;
 }
+#navsaradirection1{
+    width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+    /* direction: rtl; */
+}
 #rrr{
     width: 100%;
     margin: 0%;
     padding: 0%;
     display: flex;
     align-items: center;
-     justify-content: flex-end;
+justify-content: flex-end;
    
 }
+#rrr1{
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    align-items: center;
+justify-content: center;
+direction:rtl;
+}
+
+
 #postmain{
     background-color: #F5F5F5;
 }
 #img1{
-    height: 200px;
-    width: 150px;
+    height: 150px;
+    width: 140px;
     margin-top: 5px;
 }
 #proname{
     font-weight:bolder;
-    font-size: 60px;
+    font-size: 55px;
     /* line-height: 100px; */
     color:#014458;
 }
 #name1{
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: 500;
     background-color: #fffdfd;
     border-radius: 10px;
@@ -192,13 +256,17 @@
     margin-right: 3%; */
   
 }
+#sarahprofile23f{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
 #offer12{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 50px;
+    padding-top: 2px;
     padding-bottom: 50px;
    padding-left: 3%;
     /* padding-right: 3%; */
@@ -210,14 +278,45 @@
     align-items: center;
     justify-content: center;
    box-shadow: 0 2px 25px rgba(0,0,0,0.2);
+   min-height:  235px; 
+    width: 170px;
+    background-color: white;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+     cursor: pointer;  
+}
+#cardprofile3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   box-shadow: 0 2px 25px rgba(0,0,0,0.2);
+   min-height:  210px; 
+    width: 170px;
+    background-color: white;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px; 
+}
+
+#cardprofile1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   box-shadow: 0 2px 25px rgba(0,0,0,0.2);
     /* width:15%; */
-   min-height:  300px; 
+   min-height:  220px; 
     width: 165px;
     background-color: white;
     margin-top: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
+
+
 #col21{
     padding: 0px;
     margin: 0px;
@@ -249,11 +348,11 @@ padding: 0;
     flex-direction: column;
     align-items: flex-end;
 }
-#d1{
+/* #d1{
     margin-top: 20px;
     margin-bottom: 20px;
-}
-#d111{
+} */
+#d111serlogin{
     margin-top: 20px;
     margin-bottom: 20px;
     direction: rtl;
@@ -262,7 +361,7 @@ padding: 0;
 
 
 
-#p1{
+#p1sss{
 font-weight: 400;
 font-size: 26px;
 color:
@@ -341,6 +440,12 @@ height: 35px;
 #footimg{
     height: 40px;
 }
+#pppnamelogo{
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 #profilecard{
     background-color: #EFEFEF;
     /* background-color: rgb(255, 174, 0); */
@@ -354,14 +459,29 @@ height: 35px;
   padding-bottom: 10px;
     
 }
+#conflex{
+    display: flex;
+    padding-left: 20px;
+}
+#iconprofile1{
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+   
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
 #profilelogo{
-    margin-left: 4%;
+    margin-left:15px;
 }
 #locationicon{
     display: flex;
-    flex-direction: column;
+   
  margin-right: 1%;
- float: right;
+ /* float: right; */
  direction: rtl;
  
 }
@@ -405,25 +525,33 @@ height: 35px;
 #brandlogl{
     margin-left:25%;
 }
-#row{
+#rowlogins1{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 65%;
+   /* min-height: 250px; */
    direction: rtl;
     background-color: white;
 }
-#row1{
+#row1ssfrfd{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 65%;
    
 }
-#box{
+#selectscroll{
+    overflow-y: scroll;
+    height: 400px;
+}
+#colornav{
+    color:white;
+}
+/* #box{
     border-top: hidden;
    background-color:linear-gradient(to right,#003E52,#1791AB); 
-}
+} */
 #b1{
     color:white;
 }
@@ -439,7 +567,7 @@ height: 35px;
 .dropbtn {
     background-image: linear-gradient(to right,#003E52,#1791AB); 
     color: white;
-    padding: 16px;
+    /* padding: 16px; */
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -456,10 +584,10 @@ height: 35px;
   .dropdown-content {
     display: none;
     position:absolute;
-
+padding: 0px;
     background-color: #f9f9f9;
 color: #424242;
-    min-width: 160px;
+    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2;
   }
@@ -481,12 +609,16 @@ color: #424242;
 }
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    /* padding: 12px 16px; */
     text-decoration: none;
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: #f1f1f1}
+  .dropdown-content a:hover {
+      background-color: #fff9f9;
+     min-height:35px ;
+     transform: scale(1.1);
+    }
   
   .dropdown:hover .dropdown-content {
     display: block;
@@ -518,10 +650,58 @@ color: #424242;
   /* #right{
       overflow: auto;
   } */
+  #phoneppp{
+      padding-left: 10px;
+  }
   @media (max-width: 575.98px) { 
-#width{
+      #name1{
+          font-size: 12px;
+      }
+      #p1sss{
+          font-size: 15px;
+      }
+    #row1ssfrfd{
+        width: 100%;
+       
+    }
+      #box{
+          min-width: 50%;
+      }
+    .text-block {
+        bottom: 70%;
+    }
+    .text-block3 {
+       bottom: 77%;
+    }
+      #img2233{
+          width: 75px;
+          height: 75px;
+      }
+    #img223sss{
+        height: 20px;
+    }
+      #pppnamelogo{
+          width: 100%;
+          display: flex;
+          flex-direction:column-reverse; 
+          justify-content: center;
+          align-items: flex-end;
+         padding-right: 10px;
+      }
+      #locationicon{
+          width: 100%;
+        display: flex;
+        flex-direction:column-reverse;
+        justify-content:flex-end;
+        align-items: flex-end; 
+      }
+#width32{
     width:100%;
     height: 40px;
+}
+#starwidth >#starDimension{
+  width: 5px;
+height: 5px;
 }
 #searchwidth{
     width: 40%;
@@ -547,14 +727,24 @@ color: #424242;
 }
 #proname{
     font-weight:bolder;
-    font-size: 30px;
+    font-size: 25px;
 
 }
 #card{
     width: 170px;
 }
 #cardprofile{
-    width: 170px;
+    width: 140px;
+    min-height:  210px; 
+}
+#cardprofile3{
+    width: 140px;
+    min-height:  190px; 
+
+}
+#cardprofile1{
+    width: 140px;
+    min-height:  180px; 
 }
 #img22{
     /* width: 50px; */
@@ -563,14 +753,14 @@ color: #424242;
 }
 #img223{
    
-    height: 30px;
+    height: 50px;
 }
 
 #search{
     width:90%;
     height: 40px;
 }
-#row{
+#rowlogins1{
     width: 80%;
 }
 
@@ -580,11 +770,11 @@ color: #424242;
   align-items: flex-start;
     justify-content: flex-start;
 }
-#reg1{
+#reg1sese{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 #log1{
     display: flex;
@@ -598,10 +788,45 @@ color: #424242;
     align-items: center;
     justify-content: center;
 }
+#img1{
+    height: 120px;
+    width: 110px;
+}
+#conflex{
+    padding-bottom: 5px;
+}
 
   }
   @media (min-width: 576px) and (max-width: 767.98px) { 
-    #width{
+    #p1sss{
+        font-size: 18px;
+    }
+  #row1ssfrfd{
+      width: 68%;
+     
+  }
+  #pppnamelogo{
+    width: 100%;
+    display: flex;
+    flex-direction:column-reverse; 
+    justify-content: center;
+    align-items: flex-end;
+   padding-right: 10px;
+}
+    #box{
+        min-width: 30%;
+    }
+    #conflex{
+        padding-bottom: 5px;
+    }
+    #locationicon{
+        width: 100%;
+      display: flex;
+      flex-direction:column-reverse;
+      justify-content:flex-end;
+      align-items: flex-end; 
+    }
+    #width32{
         width:100%;
         height: 40px;
     }
@@ -632,6 +857,16 @@ color: #424242;
     }
     #cardprofile{
         width: 170px;
+      
+    }
+    #cardprofile3{
+        width: 170px;
+      
+    }
+  
+    #cardprofile1{
+        width: 170px;
+     
     }
     #img22{
         /* width: 50px; */
@@ -668,13 +903,31 @@ color: #424242;
         justify-content: center;
     }
     #img223{
-        height: 30px;
+        height: 50px;
+    }
+    #proname{
+        font-weight:bolder;
+        font-size: 30px;
+    
     }
       }
 
 
   @media (min-width: 768px) and (max-width: 991.98px) { 
-    #width{
+    #p1sss{
+        font-size: 20px;
+    }
+  #row1ssfrfd{
+      width: 60%;
+     
+  }
+  #pppnamelogo{
+   min-width: 30%;
+}
+    #box{
+        min-width: 24%;
+    }
+    #width32{
         width:100%;
         height: 40px;
     }
@@ -719,11 +972,22 @@ color: #424242;
         justify-content: center;
     }
     #img223{
-        height: 30px;
+        height: 60px;
+    }
+    #proname{
+        font-weight:bolder;
+        font-size: 30px;
+    
     }
   }
   @media (min-width: 992px) and (max-width: 1199.98px) {
-    #width{
+    #pppnamelogo{
+       min-width: 25%;
+    }
+    #box{
+        min-width: 20%;
+    }
+    #width32{
         width:100%;
         height: 40px;
     }
@@ -742,12 +1006,20 @@ color: #424242;
         
         }
         #img223{
-            height: 30px;
+            height: 60px;
+        }
+        #proname{
+            font-weight:bolder;
+            font-size: 30px;
+        
         }
   
   }
   @media (min-width: 1200px) { 
-    #width{
+      #pppnamelogo{
+         min-width: 22%;
+      }
+    #width32{
         width:100%;
         height: 40px;
     }
@@ -767,6 +1039,6 @@ color: #424242;
         
         }
         #img223{
-            height: 30px;
+            height: 60px;
         }
   }

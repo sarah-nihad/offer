@@ -1,6 +1,6 @@
 import React from 'react';
 import './nav1.css'
-import { Navbar, Nav, Row, Col ,ButtonToolbar,SplitButton,Dropdown,InputGroup,FormControl} from 'react-bootstrap';
+import { Navbar, Nav, Row, Col ,ButtonToolbar,SplitButton,Dropdown,InputGroup,FormControl,DropdownButton} from 'react-bootstrap';
 import { Link,Redirect } from 'react-router-dom';
 import axios from 'axios';
 import host from './host';
@@ -175,9 +175,9 @@ class Nav2 extends React.Component {
 
           <Navbar.Brand style={{paddingLeft:'3%'}}>  <img src={require('./asdf.png')} id='img22' /></Navbar.Brand> 
           
-          <Navbar.Brand style={{paddingLeft:'3%'}}>  <img src={require('./with.png')} id='img223' /></Navbar.Brand> 
-           <Navbar.Toggle aria-controls="basic-navbar-nav" /> 
-          <Navbar.Collapse id="basic-navbar-nav"> 
+          <Navbar.Brand style={{paddingLeft:'3%'}}>  <img src={require('./with.png')} id='img223sss' /></Navbar.Brand> 
+           <Navbar.Toggle aria-controls="basic-navbar-nav"    style={{color:'white'}} /> 
+          <Navbar.Collapse id="basic-navbar-nav"   style={{color:'white'}} > 
             <Nav className="mr-auto">
           
             </Nav>
@@ -201,7 +201,7 @@ if (id) {
 
         <i className="fas fa-search" id='iconcolor'></i>
         </InputGroup.Text>
-
+<div style={{color:'#000'}}>
       <Autosuggest  style={{color:'red'}}
       id="Autosuggest"
 
@@ -213,6 +213,7 @@ if (id) {
 
  inputProps={inputProps}
 />
+</div>
     </InputGroup.Prepend>
   
   
@@ -226,69 +227,73 @@ if (id) {
               <div id="contact">  الاقسام </div> 
             
        <div className="dropdown-content">
-       {this.state.data.map((item =>
-                <div>
+       {this.state.data.map(((item ,i)=>
+                <div  key={i}>
             
-            <ButtonToolbar  id='left' key={item._id}>
-
-{[ 'left'].map(direction => (
-  <Component initialState={{ cat: [],data:[] }}>
-  {({ state, setState }) => (
-   
-<SplitButton
-drop={direction}
-variant="none"
-title={  <div key={item._id}
-  onClick={()=>{
- 
-  axios.get(host +`api/v1/cat/get/?section_id=${item._id}` )
-  .then(res=>{ 
-    console.log(res.data.category);
-    
-    setState({
-      cat:res.data.category
-    })
-
-  })
-  .catch(err=>{console.log('error:' + err);
-  })
-
-
-
-}} >   <img src={item.logo} id='navsectionlogo'  /> {item.name} </div> }
-id={`dropdown-button-drop-${direction}`}
-key={direction}
->
-
-
-
-{state.cat.map((item1 =>
-
-<Dropdown.Item eventKey="1"  >
-  
-  <div onClick={()=>{
-    window.location.href = `/profile?id=${item1._id}`;
-
-  }} >
-  
-   
-
-<p id='left1'key={item1._id} >{item1.name} </p>  
-
-
-    
-   
-      </div></Dropdown.Item>
-))}
-</SplitButton>
-// </div>
-  )}
-  </Component>
-))}
-</ButtonToolbar>
+          
              
                
+               <ButtonToolbar id='left'  key={i}>
+    {['left'].map(direction => (
+      <Component initialState={{ cat: [],data:[] }}>
+      {({ state, setState }) => (
+      <DropdownButton id='left' 
+        drop={direction}
+        variant=""
+        title={  <div key={item._id}
+        onClick={()=>{
+       
+        axios.get(host +`api/v1/cat/get/?section_id=${item._id}` )
+        .then(res=>{ 
+          console.log(res.data.category);
+          
+          setState({
+            cat:res.data.category
+          })
+      
+        })
+        .catch(err=>{console.log('error:' + err);
+        })
+      
+      
+      
+      }} >  
+      <div id='navsaradirection1'>
+       <img src={'https://www.orothe.com/api/v1/'+item.logo} id='navsectionlogo'  /> 
+       {/* <img src={require('./sss.png')} id='navsectionlogo'  />  */}
+     <span style={{marginLeft:'5px'}}>   {item.name}     </span> 
+      </div>
+       </div>}
+        // id={`dropdown-button-drop-${direction}`}
+        key={direction}
+      >
+       <div id='selectscroll'>
+{state.cat.map(((item1,i) =>
+
+  <Dropdown.Item   key={i} >
+    
+    <div onClick={()=>{
+      window.location.href = `/profile?id=${item1._id}`;
+  
+    }} >
    
+     
+  
+  <p id='left1'key={item1._id} >{item1.name} </p>  
+  
+  
+      
+     
+        </div></Dropdown.Item>
+      
+  ))}
+   </div>
+      </DropdownButton>
+    )}
+    
+  </Component>
+    ))}
+  </ButtonToolbar>
                  
                   </div> 
           
@@ -309,7 +314,7 @@ key={direction}
               content={
                 <Pane
                   width={200}
-                  height={50}
+                 height={70}
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
@@ -321,6 +326,14 @@ key={direction}
                   window.location.href= "/"
                 }}
                 > تسجيل الخروج</button>
+             <div style={{paddingTop:'10px'}}></div>
+
+<button  id='out'
+                onClick={()=>{ 
+               
+                  window.location.href= "/Login1"
+                }}
+                >  Admin Login</button>
                 </Pane>
               }
             >

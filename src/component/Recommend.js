@@ -4,50 +4,59 @@ import {Row,Col} from  'react-bootstrap';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import host from './host';
+import Context from './context';
+import StarRatings from 'react-star-ratings';
  const cookies =new Cookies();
 class Recommend extends Component{
-    constructor(){
-        super();
-        this.state={
-          data:[],
-          description:'',
-          type_value:'',
-          type:'',
-          uptime:'',
-          logo:'',
-        
-        }
-      }
+  
     
     
     
-        componentDidMount(){  
-            axios.get(host+'api/v1/recommend/' )
-            .then(res=>{console.log(res.data.rec)
-              this.setState({
-                data:res.data.rec
-              })
-            })
-            .catch(err=>{console.log('error:' + err);
-            })
-          }
+     
     render(){
         return(
+          <Context.Consumer>{ctx => {
+            return (
             <div id='postmain'>
-                <div id='most'>
-              الموصى بها
+             <div id='most'>
+                  <p id='box'>
+                  <i className="far fa-thumbs-up" style={{color:'red',paddingRight:'10px'}}> </i>   الموصى بها
+               </p>
 </div>
 <div id ='offer12'>
 <Row style={{marginRight:'0px'}} id='rrr'>
- {this.state.data.map((item =>
-    <Col xs={6} md={4} lg={3} xl={2} id='col21'>
+ {ctx.value.data2.map(((item,i) =>
+    <Col xs={6} md={4} lg={3} xl={2} id='col21'  key={i}>
   
 <div id ='cardprofile'>
-<img src={item.logo} id='img1' />
+  
+<div className="container">
+{/* <img src={require('./asdf.png')} id='img1' /> */}
+<img src={`https://www.orothe.com/api/v1/`+item.logo} id='img1' />
+  <div className="text-block"> 
+  <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' /></div>
+  </div>
+</div>
+
 <div id='name1'>{item. description}</div>
-{/* <div>20000 IQD</div> */}
-<div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' /></div>
-<div>{item.uptime}</div>
+
+
+<div id='popstar'>
+ 
+  
+                <StarRatings 
+           
+       
+            rating={item.category_id.rating}
+              starRatedColor=" rgb(255, 174, 0)"
+              starDimension="15px"
+           
+              numberOfStars={5}
+              starSpacing="0px"
+           
+                  />
+                  </div>
+
 
 </div>
 
@@ -57,6 +66,10 @@ class Recommend extends Component{
 </Row>
 </div>
             </div>
+                   )
+                  }}
+      
+                  </Context.Consumer>
         );
     }
 }
