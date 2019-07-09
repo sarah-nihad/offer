@@ -3,97 +3,142 @@ import Login1 from './component/Login1';
 import Login from './component/Login';
 import Context from './component/context';
 import Si from './Dashbord/Si';
-
+import './component/nav1.css';
 import Profile from './component/Profile';
 
 import Maincard from './component/Maincard';
 import axios from 'axios';
 import host from './component/host';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 class App extends Component {
   constructor() {
     super();
     this.state = {
-
+      pass: '',
+      mail: '',
       data: [],
-      datas:[],
+      datas: [],
       data2: [],
       data3: [],
-      data5:[],
+      data5: [],
       description: '',
       type_value: '',
       logo: '',
       category_id: '',
       rating: '',
-      Image:'',
+      Image: '',
+      auth: null,
+      spin: true,
+      spin1: true,
+      spin2: true,
+      spin3: true,
+      spin4: true,
 
     }
+
   }
 
 
   componentDidMount() {
+
+    axios.get(host + 'api/v1/admin/checkadmin', { headers: { token: cookies.get("token") } })
+      .then(res => {
+
+        if (res.data.isAdmin === true) {
+          this.setState({ auth: true })
+        }
+      })
+      .catch(err => {
+        this.setState({ auth: false })
+        console.log('error:' + err);
+      })
+
+    axios.get(host + 'api/v1/banner/')
+      .then(res => {
+        //console.log(res.data.banner)
+        if (res.status === 200) {
+          this.setState({
+            datas: res.data.banner,
+            spin: false
+          })
+        }
+      }).catch(err => {
+        console.log('error:' + err)
+        this.setState({
+          spin: false
+        });
+      })
 
 
     axios.get(host + 'api/v1/card/new')
       .then(res => {
         console.log(res.data.new)
         this.setState({
-          data: res.data.new
+          data: res.data.new,
+          spin1: false
         })
 
       })
       .catch(err => {
         console.log('error:' + err);
+        this.setState({
+
+          spin1: false
+        })
       })
 
     axios.get(host + 'api/v1/card/special')
       .then(res => {
-        console.log(res.data.hot_deal)
+        // console.log(res.data.hot_deal)
         this.setState({
-          data3: res.data.hot_deal
+          data3: res.data.hot_deal,
+          spin2: false
         })
       })
       .catch(err => {
         console.log('error:' + err);
+        this.setState({
+
+          spin2: false
+        })
       })
+
+
     axios.get(host + 'api/v1/recommend/')
       .then(res => {
-        console.log(res.data.rec)
+        // console.log(res.data.rec)
         this.setState({
-          data2: res.data.rec
+          data2: res.data.rec,
+          spin3: false
         })
       })
       .catch(err => {
         console.log('error:' + err);
-      })
-
-      
-      axios.get(host+'api/v1/cat/visited' )
-      .then(res=>{console.log(res.data.visited)
         this.setState({
-          data5:res.data.visited
+
+          spin3: false
         })
       })
-      .catch(err=>{console.log('error:' + err);
-      })
 
-      axios.get(host+'api/v1/banner/' )
-      .then(res=>{
-        //console.log(res.data.banner)
+
+    axios.get(host + 'api/v1/cat/visited')
+      .then(res => {
+        // console.log(res.data.visited)
         this.setState({
-          datas:res.data.banner
+          data5: res.data.visited,
+          spin4: false
         })
       })
-      .catch(err=>{console.log('error:' + err);
-      })
+      .catch(err => {
+        console.log('error:' + err);
+        this.setState({
 
+          spin4: false
+        })
+      })
   }
-
-
-
-
 
   render() {
     return (
@@ -105,6 +150,8 @@ class App extends Component {
           <Context.Provider value={{
             value: this.state,
             action: {
+
+
 
             }
           }}>
@@ -132,6 +179,7 @@ class App extends Component {
               <Route path='/Addusers' component={Si} />
               <Route path='/Allcard' component={Si} />
               <Route path='/Allbanner' component={Si} />
+              <Route path='/Ratingdescription' component={Si} />
             </Switch>
           </Context.Provider>
         </BrowserRouter>

@@ -19,9 +19,10 @@ class Allcard extends  React.Component{
       data1: [],
       email: '',
       type: '',
+    
       hot_deal:'',
       type_value:'',
-      type:'',
+      _id:'',
       licenseDate: '',
       SelctCardName: 'Select',
       SelectCateName: 'Select',
@@ -29,10 +30,10 @@ class Allcard extends  React.Component{
       pass: (''),
       pass1: (''), phone: (''), mail: (''), page: ('')
       , file: []
-      , date: (''), startDate: new Date(),
+      , date: (''), startDate: new Date(),  
       rest: '', location: '', section_id: '',
       category_id: '',
-
+      card_id:'',
       cards_id: '',
       allCate: [],
       wait: true
@@ -46,31 +47,38 @@ class Allcard extends  React.Component{
       date
     });
   }
-  login(id){
 
-  
-    
-  
-  
-   
-  
+
+
+  login2(_id,hot_deal,type_value,type,description){
+
+    var file=this.state.file;
+    var hot_deal=this.state.hot_deal;
+    var type_value=this.state.type_value;
+    var type=this.state.type;
+    var description=this.state.description;
+
+
     let formData = new FormData();
     var headers = {
       "Content-Type": "application/json",
       token: cookies.get("token")
     };
  
-    formData.append("card_id", id);
- 
-    
+    formData.append("card_id",_id);
+    formData.append("hot_deal", hot_deal);
+    formData.append("type_value", type_value);
+    formData.append("type", type);
+    formData.append("description", description);
+    formData.append("file", file);
    
     axios({
-      url: host+ `api/v1/card/delete`,
+      url: host+ `api/v1/card/edite`,
       method: "POST",
       data: formData,
         headers: headers
     }) .then(response => {
-       toaster.success('Card has been deleted successfully');
+       toaster.success('Card has been edit successfully');
        this.componentDidMount()
       })
       .catch(function (error) {
@@ -84,6 +92,36 @@ class Allcard extends  React.Component{
  
 
  
+     delete(_id){
+
+
+      let formData = new FormData();
+      var headers = {
+        "Content-Type": "application/json",
+        token: cookies.get("token")
+      };
+   
+      formData.append("card_id",_id);
+   
+      
+     
+      axios({
+        url: host+ `api/v1/card/delete`,
+        method: "POST",
+        data: formData,
+          headers: headers
+      }) .then(response => {
+         toaster.success('Card has been delete successfully');
+         this.componentDidMount()
+        })
+        .catch(function (error) {
+          console.log(error.response.data)
+          if (error.response) {
+            toaster.danger(error.response.data.mgs);
+          }
+        });
+   
+       }
 
 
 
@@ -151,14 +189,14 @@ class Allcard extends  React.Component{
 
 
 
-      <div id='rr'>
+      <div>
      
       
 
         <Row style={{ marginRight: '0px' }} className="justify-content-md-center">
           <Col id="tt" >
-            <div id='account'>Add Profile</div></Col> </Row>
-        <div id="form">
+            <div id='account'>Edit Cards</div></Col> </Row>
+        <div >
 
           <Row style={{ marginRight: '0px' }} className="justify-content-md-center" id="row11">
             <Col id='t1pro' xm="12" >
@@ -247,7 +285,7 @@ class Allcard extends  React.Component{
 
     <div id='icon111'> <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>   
    <i className="fas fa-trash"   onClick={(e) => {
-                    this.login(item._id)
+                    this.delete(item._id)
 
                   }}   ></i>       </ListItemIcon> 
     
@@ -264,26 +302,50 @@ class Allcard extends  React.Component{
         onCloseComplete={() => setState({ isShown: false })}
         hasFooter={false}
       >
-                         <input type="text" placeholder='Name' value={this.state.name} onChange={(e)=>{
-    this.setState({name:e.target.value})
+                       
+                       <TextInput id='width'
+  name="text-input-name"
+  placeholder="description" 
+  required value={this.state.description} onChange={(e)=>{
+    this.setState({description:e.target.value})
       }}/>
-      <br/>
-                             <input type="text" placeholder='mail' value={this.state.email} onChange={(e)=>{
-    this.setState({email:e.target.value})
-      }}/>
-      <br/>
 
-      <input type="text" placeholder='phone' value={this.state.phone} onChange={(e)=>{
-    this.setState({phone:e.target.value})
-      }}/>
-      <br/>
 
-      <input type="text" placeholder='location' value={this.state.location} onChange={(e)=>{
-    this.setState({location:e.target.value})
-      }}/>
+<TextInput id='width'
+  name="text-input-name"
+  placeholder="type true or false" 
+  required value={this.state.type} onChange={(e)=>{
+    this.setState({type:e.target.value})
+      }}
+/>
+
+ <TextInput
+  name="text-input-name" id='width'
+  placeholder="must be number" 
+  required value={this.state.type_value} onChange={(e)=>{
+    this.setState({type_value:e.target.value})
+      }}/>  
+
+
+      <TextInput  id='width'
+  name="text-input-name"
+  placeholder=" hot true or false"  required
+  value={this.state.hot_deal} onChange={(e)=>{
+    this.setState({hot_deal:e.target.value})
+      }} />
+            <FilePicker  id='width'
+  multiple
+ 
+ 
+  onChange={files => 
+    this.setState({file:files[0]})
+  }
+/>
+
+
       <br/>
                             <button  onClick={(e) => {
-                    this.login2(item._id,item.name,item.email,item.phone,item.location)
+                    this.login2(item._id,item.hot_deal,item.type_value,item.type,item.description)
 
                   }} >Edit</button>
       </Dialog>

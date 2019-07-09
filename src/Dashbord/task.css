@@ -139,13 +139,14 @@
     margin-bottom: 10px;
     border-radius: 20px;
     /* background-image:linear-gradient(to bottom, #cc5229, #f15a29 ); */
-    background-image:linear-gradient(to right,#003E52,#1791AB);
+ background-color: #1791AB;
     color:white;
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
-   
+   font-size: 25px;
+   font-weight: 500;
   
    
 }
@@ -159,9 +160,27 @@
     text-decoration: none;
 }
 #rrlogin{
-    background-image:linear-gradient(to bottom, #e25424, #f15a29 );
-    background-image:linear-gradient(to right, #e65829,  #f15a29);
+  
+    background-image:linear-gradient(to right,rgb(233, 241, 243),rgb(211, 212, 212));
      height: 100vh;   
+}
+#logindashbord2sar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;  
+}
+#fff{
+    width: 50%;
+    background-color: #Ecf0f1;
+    box-shadow: 0px 0px 10px 1px rgb(167, 166, 166);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
 }
 #raccount{
     background-image:linear-gradient(to right,#003E52,#1791AB);
@@ -401,11 +420,23 @@
    
    
 }
+#poerdsrAA{
+    width: 160px;
+}
 @media (max-width: 575.98px) { 
+   #poerdsrAA{
+       width: 100px;
+   }
+    #sro3531{
+        width: 95%;
+    }
     #tab{width: 200px; height: 70px;}
     #tab1{ height: 100px;}
     #cardtab3{
         height: 130vh;
+    }
+    #fff{
+        width: 90%;
     }
     #rowlogin{
         width: 90%;}
@@ -435,7 +466,7 @@
         height: 100vh;
       }
     #card1{
-        width: 200px;
+        width: 180px;
         height:110px;
     }
     #card11{
@@ -466,6 +497,9 @@
    
 
 @media (min-width: 576px) and (max-width: 767.98px) { 
+    #sro3531{
+        width: 95%;
+    }
     #rowlogin{
         width: 90%;}
         #width{
@@ -496,7 +530,7 @@
         height: 100vh;
       }
       #card1{
-        width: 200px;
+        width: 180px;
         height:110px;
     }
     #card11{
@@ -543,7 +577,7 @@
     #tab{width: 230px; height: 80px;}
     #tab1{ height: 110px;}
     #card1{
-        width: 220px;
+        width: 180px;
         height:120px;
     }
     #card11{
@@ -587,7 +621,7 @@
     #tab1{ height: 130px;}
    
     #card1{
-        width: 220px;
+        width: 180px;
         height:120px;
     }
     #card222{
@@ -616,7 +650,7 @@
         height:90vh;
       }
       #card1{
-        width: 220px;
+        width: 200px;
         height:150px;
      
     }

@@ -16,6 +16,7 @@ class Category1 extends React.Component{
     super();
     this.state={
       data:[],
+      file:[],
       name:'',
       email:'',
       phone:'',
@@ -83,10 +84,11 @@ class Category1 extends React.Component{
   
       }
   
-      login2(id,name,email,phone,location){
+      login2(id,name,email,phone,location,file){
         var name=this.state.name;
         var email=this.state.email;
         var phone=this.state.phone;
+        var file=this.state.file;
         var location=this.state.location;
         let formData = new FormData();
         var headers = {
@@ -98,8 +100,10 @@ class Category1 extends React.Component{
         formData.append("email", email);
         formData.append("phone", phone);
         formData.append("location", location);
+        formData.append("file", file);
         axios({
           url: host+ `api/v1/cat/edite`,
+        
           method: "POST",
           data: formData,
             headers: headers
@@ -191,8 +195,17 @@ class Category1 extends React.Component{
     this.setState({location:e.target.value})
       }}/>
       <br/>
+      <FilePicker  id='width'
+  multiple
+ 
+ 
+  onChange={files => 
+    this.setState({file:files[0]})
+  }
+/>
+<br/>
                             <button  onClick={(e) => {
-                    this.login2(item._id,item.name,item.email,item.phone,item.location)
+                    this.login2(item._id,item.name,item.email,item.phone,item.location,item.file)
 
                   }} >Edit</button>
       </Dialog>

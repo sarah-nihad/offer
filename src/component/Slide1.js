@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Carousel} from 'react-bootstrap';
-import './nav1.css';
+
 import axios from 'axios';
 import host from './host';
 import Context from './context';

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './nav1.css';
+
 import {Row,Col} from  'react-bootstrap';
 import Cookies from 'universal-cookie';
 import axios from 'axios';

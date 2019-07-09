@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import './nav1.css';
+
 import {Row,Col} from 'react-bootstrap';
 import { Link,Redirect } from 'react-router-dom';
 class Foot1 extends Component {

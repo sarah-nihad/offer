@@ -1,9 +1,10 @@
 import React ,{Component} from 'react';
-import './nav1.css';
+
 import axios from 'axios';
 import host from './host';
 import Foot1 from './Foot1';
 import Nav2 from './Nav2';
+import Context from './context';
 import {Row,Col} from  'react-bootstrap';
 import StarRatings from 'react-star-ratings';
 class Profile extends Component{
@@ -64,6 +65,8 @@ class Profile extends Component{
       }
       render(){
           return(
+            <Context.Consumer>{ctx => {
+              return (
               <div>
                   <div id="apfot">
  <Nav2 />
@@ -157,8 +160,11 @@ class Profile extends Component{
            <Foot1 />
            
               </div>
+      )
+    }}
 
-          )
+    </Context.Consumer>
+          );
       }
     }
     export default Profile;

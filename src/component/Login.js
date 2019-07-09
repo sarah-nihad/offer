@@ -57,7 +57,7 @@ console.log(response)
          .catch(function (error) {
            console.log(error.response.data)
            if (error.response) {
-             toaster.danger(error.response.data.mgs);
+             toaster.danger('قم بأدخال رقم الموبايل و الباسورد');
            }
          });
 
@@ -67,7 +67,9 @@ console.log(response)
 
     render(){
         return(
-          // <Context.Consumer>{ctx => {
+     
+          <Context.Consumer>{ctx => {
+            return (
             <div id='mm'>
               <div id="apfot">
           <Nav2 />
@@ -126,9 +128,10 @@ console.log(response)
 <Foot1 />
             </div>
 
-              //  }}
+)
+}}
 
-              //  </Context.Consumer>
+</Context.Consumer>
         );
         
     }

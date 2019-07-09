@@ -3,6 +3,7 @@ import './task.css';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
+import Context from '../component/context'
 class Home extends Component {
     constructor() {
         super();
@@ -12,6 +13,8 @@ class Home extends Component {
     }
     render() {
         return (
+            <Context.Consumer>{ctx => {
+                return (
             <div id='cardtab3'>
                 <Row style={{ marginRight: 0 }} id='rowcard'>
 
@@ -106,7 +109,10 @@ class Home extends Component {
 
             </div>
 
+)
+}}
 
+</Context.Consumer>
         );
     }
 }

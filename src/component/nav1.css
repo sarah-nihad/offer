@@ -71,7 +71,16 @@
     border-bottom: none;
     border-right: none;
     border-left: none;
-
+    font-size: 12px;
+    height: 40px;
+width: 100px;
+outline: none;
+}
+#out:hover{
+    transform: scale(1.03);
+}
+#out:active{
+    transform: scale(1);
 }
 #navmain{
     background-image:linear-gradient(to right,#003E52,#1791AB); 
@@ -117,7 +126,7 @@
     height: 50px;
 }
 #abr{
-    background-image:linear-gradient(to right,#003E52,#1791AB);  
+    /* background-image:linear-gradient(to right,#003E52,#1791AB);   */
 }
 #main{
     display:flex;
@@ -136,6 +145,7 @@
     align-items: center;
 }
 #imgslid{
+    min-height: 350px;
     height: auto;
     width: 100%;
 }
@@ -320,6 +330,10 @@ direction:rtl;
 #col21{
     padding: 0px;
     margin: 0px;
+    display: flex;
+  
+    align-items: center;
+    justify-content: center;
 }
 #card{
     display: flex;
@@ -519,8 +533,11 @@ height: 35px;
   
     transform: scale(1.1);
     /* font-size: 18px; */
-    font-weight: 400;
-    
+    font-weight: 400; 
+}
+#hh:hover{
+    transform: scale(1.1); 
+    cursor: pointer;
 }
 #brandlogl{
     margin-left:25%;
@@ -533,6 +550,7 @@ height: 35px;
    /* min-height: 250px; */
    direction: rtl;
     background-color: white;
+    border-radius: 10px;
 }
 #row1ssfrfd{
     display: flex;
@@ -654,6 +672,9 @@ color: #424242;
       padding-left: 10px;
   }
   @media (max-width: 575.98px) { 
+    #imgslid{
+        min-height: auto;
+    }
       #name1{
           font-size: 12px;
       }
@@ -798,6 +819,9 @@ height: 5px;
 
   }
   @media (min-width: 576px) and (max-width: 767.98px) { 
+    #imgslid{
+        min-height: auto;
+    }
     #p1sss{
         font-size: 18px;
     }
@@ -914,6 +938,9 @@ height: 5px;
 
 
   @media (min-width: 768px) and (max-width: 991.98px) { 
+    #imgslid{
+        min-height: auto;
+    }
     #p1sss{
         font-size: 20px;
     }
@@ -981,6 +1008,9 @@ height: 5px;
     }
   }
   @media (min-width: 992px) and (max-width: 1199.98px) {
+      #imgslid{
+          min-height: auto;
+      }
     #pppnamelogo{
        min-width: 25%;
     }
@@ -1016,6 +1046,9 @@ height: 5px;
   
   }
   @media (min-width: 1200px) { 
+    #imgslid{
+        min-height: auto;
+    }
       #pppnamelogo{
          min-width: 22%;
       }

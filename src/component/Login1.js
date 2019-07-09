@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './task.css';
+import '../Dashbord/task.css';
 import { TextInput, FilePicker, Button, toaster } from 'evergreen-ui';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Context from './context';
 import host from './host';
  const cookies =new Cookies();
 
@@ -40,18 +41,20 @@ class Login extends Component {
         // }
       })
       .catch(function (error) {
-        console.log(error.response.data)
+        console.log(error.message)
       });
   }
   render() {
     return (
+      <Context.Consumer>{ctx => {
+        return (
     <div id='rrlogin'>
        {/* <div> */}
         <Row style={{ marginRight: '0px' }} className="justify-content-md-center">
           <Col id="colimg" xs={12} md={12} lg={12}>
             <img src={require('./poerd by.png')} id="img" />
           </Col></Row>
-
+<div id='logindashbord2sar'>
 
      
         <div id='fff' >
@@ -67,8 +70,9 @@ class Login extends Component {
                
 <div id='loginame'>
 <img src={require('./d.jpg')} id="imglog" />
+
                   <p></p>
-                  <TextInput
+                  <TextInput id='sro3531'
                     name="text-input-name"
                     placeholder="email"
                     required value={this.state.mail} 
@@ -79,7 +83,7 @@ class Login extends Component {
             
               
                   <p></p>
-                  <TextInput id='oooo'
+                  <TextInput id='sro3531'
                     name="text-input-name"
                     placeholder="Password" required
                     value={this.state.pass}
@@ -109,7 +113,14 @@ class Login extends Component {
 
         
 
-        </div> </div>
+        </div> 
+        </div>
+        </div>
+       )
+      }}
+
+      </Context.Consumer>
+
     );
   }
 }

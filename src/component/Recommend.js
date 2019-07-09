@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './nav1.css';
+
 import {Row,Col} from  'react-bootstrap';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
@@ -28,7 +28,10 @@ class Recommend extends Component{
  {ctx.value.data2.map(((item,i) =>
     <Col xs={6} md={4} lg={3} xl={2} id='col21'  key={i}>
   
-<div id ='cardprofile'>
+<div id ='cardprofile'  onClick={() => {
+                      window.location.href = `/profile?id=${item.category_id._id}`;
+
+                    }}  >
   
 <div className="container">
 {/* <img src={require('./asdf.png')} id='img1' /> */}
