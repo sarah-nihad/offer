@@ -66,6 +66,41 @@ class Section1 extends React.Component{
        });
   
       }
+
+      logo(id,file){
+   
+        var file=this.state.file;
+      
+        let formData = new FormData();
+        var headers = {
+          "Content-Type": "application/json",
+          token: cookies.get("token")
+        };
+        formData.append("section_id", id);
+        formData.append("file", file);
+     
+       
+        axios({
+          url: host+ `api/v1/sections/editelogo`,
+        
+          method: "POST",
+          data: formData,
+            headers: headers
+        }) .then(response => {
+           toaster.success('logo has been Edit successfully');
+            this.componentDidMount()
+          })
+          .catch(function (error) {
+            // console.log(error.response.data)
+            if (error.response) {
+              toaster.danger(error.response.data.mgs);
+            }
+          });
+     
+         }
+
+
+
   
 
       login2(id,name){
@@ -106,7 +141,7 @@ class Section1 extends React.Component{
  {this.state.data.map(((item,i) =>
   
     
-   <p  key={i}   >{item.name}      
+   <div  key={i}   >{item.name}      
      <div id='icon111'> <ListItemIcon style={{ color: 'black', paddingLeft: 30 }}>   
    <i className="fas fa-trash"   onClick={(e) => {
                     this.login(item._id)
@@ -130,10 +165,26 @@ class Section1 extends React.Component{
                             <input type="text" value={this.state.name} onChange={(e)=>{
     this.setState({name:e.target.value})
       }}/>
+            <br/>
+      <FilePicker  id='width'
+  multiple
+ 
+ 
+  onChange={files => 
+    this.setState({file:files[0]})
+  }
+/>
                             <button  onClick={(e) => {
                     this.login2(item._id,item.name)
 
-                  }} >edit</button>
+                  }} >edit name</button>
+                  <br/>
+                  
+<button  onClick={(e) => {
+                    this.logo(item._id,item.file)
+
+                  }} >Edit Logo</button>
+
       </Dialog>
 
       <Button onClick={() => setState({ isShown: true })}>   <i className="fas fa-edit"></i>  </Button>
@@ -142,7 +193,7 @@ class Section1 extends React.Component{
 </Component>
 </div>
 <hr/>
-   </p>
+   </div>
     
    
      ))}

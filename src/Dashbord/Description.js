@@ -11,19 +11,17 @@ import "react-datepicker/dist/react-datepicker.css";
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
-class Allcard extends  React.Component{
+class Description extends  React.Component{
   constructor(props) {
     super(props);
     this.state = {
       data: [],
       data1: [],
       email: '',
-      type1: '',
-      type: 'false',
+      type: '',
       hot_deal:'',
-      hot_deal:'true',
       type_value:'',
-      _id:'',
+      type:'',
       licenseDate: '',
       SelctCardName: 'Select',
       SelectCateName: 'Select',
@@ -31,13 +29,16 @@ class Allcard extends  React.Component{
       pass: (''),
       pass1: (''), phone: (''), mail: (''), page: ('')
       , file: []
-      , date: (''), startDate: new Date(),  
+      , date: (''), startDate: new Date(),
       rest: '', location: '', section_id: '',
       category_id: '',
-      card_id:'',
+      description:'',
       cards_id: '',
       allCate: [],
-      wait: true
+      wait: true,
+      evals:'',
+      image:'',
+      menu_id:''
     }
     this.handleChange = this.handleChange.bind(this)
     this.getCateById = this.getCateById.bind(this)
@@ -51,36 +52,22 @@ class Allcard extends  React.Component{
 
 
 
-  login2(_id,hot_deal1,type_value,type1,description){
-
-    // var file=this.state.file;
-    var hot_deal1=this.state.hot_deal1;
-    var type_value=this.state.type_value;
-    var type1=this.state.type1;
-    var description=this.state.description;
-
-
+  login(id){
     let formData = new FormData();
     var headers = {
       "Content-Type": "application/json",
       token: cookies.get("token")
     };
  
-    formData.append("card_id",_id);
-    formData.append("hot_deal", hot_deal1);
-    formData.append("type_value", type_value);
-    formData.append("type", type1);
-    formData.append("description", description);
-    // formData.append("file", file);
-   
+    formData.append("description_id", id);
+ 
     axios({
-      url: host+ `api/v1/card/update`,
+      url: host+ `api/v1/cat/deletedescription`,
       method: "POST",
       data: formData,
-        headers: headers,
-      
+        headers: headers
     }) .then(response => {
-       toaster.success('Card has been edit successfully');
+       toaster.success('description has been deleted successfully');
        this.componentDidMount()
       })
       .catch(function (error) {
@@ -91,63 +78,23 @@ class Allcard extends  React.Component{
       });
  
      }
- 
 
-     logo(_id,file){
-   
-      var file=this.state.file;
-    
-      let formData = new FormData();
-      var headers = {
-        "Content-Type": "application/json",
-        token: cookies.get("token")
-      };
-      formData.append("card_id",_id);
-      formData.append("file", file);
-   
-     
-      axios({
-        url: host+ `api/v1/card/edite`,
-      
-        method: "POST",
-        data: formData,
-          headers: headers
-      }) .then(response => {
-         toaster.success('logo has been Edit successfully');
-          this.componentDidMount()
-        })
-        .catch(function (error) {
-          // console.log(error.response.data)
-          if (error.response) {
-            toaster.danger(error.response.data.mgs);
-          }
-        });
-   
-       }
-
-
-
- 
-     delete(_id){
-
-
+     deletmenu(id){
       let formData = new FormData();
       var headers = {
         "Content-Type": "application/json",
         token: cookies.get("token")
       };
    
-      formData.append("card_id",_id);
+      formData.append("menu_id", id);
    
-      
-     
       axios({
-        url: host+ `api/v1/card/delete`,
+        url: host+ `api/v1/cat/deletemenu`,
         method: "POST",
         data: formData,
           headers: headers
       }) .then(response => {
-         toaster.success('Card has been delete successfully');
+         toaster.success('menu has been deleted successfully');
          this.componentDidMount()
         })
         .catch(function (error) {
@@ -158,6 +105,38 @@ class Allcard extends  React.Component{
         });
    
        }
+
+
+ 
+     login2(id,description){
+      var description=this.state.description;
+      let formData = new FormData();
+      var headers = {
+        "Content-Type": "application/json",
+        token: cookies.get("token")
+      };
+      formData.append("description_id", id);
+      formData.append("description", description);
+     
+      axios({
+        url: host+ `api/v1/cat/descriptionupdate`,
+        method: "POST",
+        data: formData,
+          headers: headers
+      }) .then(response => {
+         toaster.success('description has been edit successfully');
+          this.componentDidMount()
+        })
+        .catch(function (error) {
+          console.log(error.response.data)
+          if (error.response) {
+            toaster.danger(error.response.data.mgs);
+          }
+        });
+   
+       }
+
+ 
 
 
 
@@ -175,6 +154,15 @@ class Allcard extends  React.Component{
       .catch(err => {
         console.log('error:' + err);
       })
+
+
+
+
+
+
+
+
+
 
 
   }
@@ -195,11 +183,13 @@ class Allcard extends  React.Component{
 
     console.log(this.state.category_id);
 
-    axios.get(host + `api/v1/card/get/?category_id=${this.state.category_id}`, { headers: { token: cookies.get("token") } })
+    axios.get(host + `api/v1/cat/profile/?id=${this.state.category_id}`, { headers: { token: cookies.get("token") } })
       .then(res => {
-        //  console.log(res.data.cards)
+        //  console.log(res.data.evals)
         this.setState({
-          data1: res.data.cards,
+          // data1: res.data.evals,
+          data2:res.data.description,
+          data3:res.data.menu,
           wait: false
         })
 
@@ -216,21 +206,21 @@ class Allcard extends  React.Component{
 
 
 
-      <div>
+      <div >
      
       
 
         <Row style={{ marginRight: '0px' }} className="justify-content-md-center">
           <Col id="tt" >
-            <div id='account'>Edit Cards</div></Col> </Row>
+            <div id='account'> profile Information</div></Col> </Row>
         <div >
 
-          <Row style={{ marginRight: '0px' }} className="justify-content-md-center" id="row11">
+          <Row style={{ marginRight: '0px' }} className="justify-content-md-center">
             <Col id='t1pro' xm="12" >
 
 
               <div id='d1'>
-                <p > category_id:</p>
+                <p > </p>
 
 
                 <Form.Group as={Col} controlId="formGridState" id='width'  >
@@ -251,7 +241,7 @@ class Allcard extends  React.Component{
                     {this.state.data.map(((item ,i)=>
 
 
-                      <option  key={i} value={item._id} key={item._id}    >{item.name}</option>
+                      <option  key={i} value={item._id} key={item._id}    > {item.name}</option>
 
                     ))}
                   </Form.Control>
@@ -277,46 +267,23 @@ class Allcard extends  React.Component{
           </div>
          
           {!this.state.wait ? (
-                <div>
-
-                
-
-
-<Table responsive="lg" striped bordered hover variant="dark" style={{width:'100%'}}>
-  <thead>
+      <div >
+      
    
-    <tr>
-    
-      <th> description</th>
-      <th>type</th>
-     
-      <th>type_value</th>
-      <th>hot_deal</th>
-      <th>Edit &  delete</th>
-    
-    </tr>
 
+<h5>Description</h5>
 
-  </thead>
- <tbody>
- {this.state.data1.map(((item,i) =>
-
-    <tr  key={i}>
+{this.state.data2.map(((item,i) =>
+  
     
-      <td>{item.description} </td>
-    
-      <td>  {item.type ? "true" : "false"}
-                    </td> 
-      <td>{item.type_value}</td>
-     <td>{item.hot_deal ? "true" : "false"} </td>
-    <td>
-
-    <div id='icon111'> <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>   
+   <div  key={i}   >{item.description}      
+     <div id='icon111'> <ListItemIcon style={{ color: 'black', paddingLeft: 30 }}>   
    <i className="fas fa-trash"   onClick={(e) => {
-                    this.delete(item._id)
+                    this.login(item._id)
 
                   }}   ></i>       </ListItemIcon> 
-    
+  
+
 
 
 
@@ -326,82 +293,60 @@ class Allcard extends  React.Component{
     <Pane>
       <Dialog
         isShown={state.isShown}
-        title="Edit Category"
+        title="Edit Section"
         onCloseComplete={() => setState({ isShown: false })}
         hasFooter={false}
       >
-                       
-                       <TextInput id='width'
-  name="text-input-name"
-  placeholder="description" 
-  required value={this.state.description} onChange={(e)=>{
+                            <input type="text" value={this.state.description} onChange={(e)=>{
     this.setState({description:e.target.value})
       }}/>
-
-
-<TextInput id='width'
-  name="text-input-name"
-  placeholder="type true or false" 
-  required value={this.state.type1} onChange={(e)=>{
-    this.setState({type1:e.target.value})
-      }}
-/>
-
- <TextInput
-  name="text-input-name" id='width'
-  placeholder="must be number" 
-  required value={this.state.type_value} onChange={(e)=>{
-    this.setState({type_value:e.target.value})
-      }}/>  
-
-
-      <TextInput  id='width'
-  name="text-input-name"
-  placeholder=" hot true or false"  required
-  value={this.state.hot_deal1} onChange={(e)=>{
-    this.setState({hot_deal1:e.target.value})
-      }} />
-            <FilePicker  id='width'
-  multiple
- 
- 
-  onChange={files => 
-    this.setState({file:files[0]})
-  }
-/>
-
-
-      <br/>
                             <button  onClick={(e) => {
-                    this.login2(item._id,item.hot_deal1,item.type_value,item.type,item.description)
+                    this.login2(item._id,item.description)
 
-                  }} >Edit Information</button> <br/>
-                               <button  onClick={(e) => {
-                    this.logo(item._id,item.file)
-
-                  }} >Edit Logo</button>
+                  }} >edit</button>
       </Dialog>
 
       <Button onClick={() => setState({ isShown: true })}>   <i className="fas fa-edit"></i>  </Button>
     </Pane>
   )}
 </Component>
+</div>
+<hr/>
+   </div>
+    
+
+   
+     ))}
+  
+  <h5>Menue</h5>
+
+{this.state.data3.map(((item,i) =>
+  <Row  key={i}   >
+  <Col xs={12}> <img  src={`https://www.orothe.com/api/v1/`+item.image} style={{height:'80px',width:'200px' }} />    
+  <div id='icon111'> <ListItemIcon style={{ color: 'black', paddingLeft: 30 }}>   
+<i className="fas fa-trash"   onClick={(e) => {
+                 this.deletmenu(item._id)
+
+               }}   ></i>       </ListItemIcon> 
+
+
+
+
+
+
 
 </div>
-    </td>
-    </tr>
-     ))}
-   
-  </tbody> 
-</Table>
+</Col>
+</Row>
+
+))}
 
 
-
-
-                </div>
+ 
+     
+                 </div>
               ) : (<div></div>)}
 
-        
 
 
 
@@ -413,5 +358,5 @@ class Allcard extends  React.Component{
   }
 }
 
-export default Allcard;
+export default Description;
 

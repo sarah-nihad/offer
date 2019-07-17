@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './task.css'
-import { Row,Col} from 'react-bootstrap';
-import {TextInput,Select,Button,toaster,FilePicker } from 'evergreen-ui';
+import { Row,Col,Button} from 'react-bootstrap';
+import {TextInput,Select,toaster,FilePicker } from 'evergreen-ui';
 import DatePicker from "react-datepicker";
  
 import "react-datepicker/dist/react-datepicker.css";
@@ -227,7 +227,7 @@ this.setState({category_id:e.target.value})
 
 <Row  style={{marginRight:'0px'}} className="justify-content-md-center"> 
  <Col id="t1" >
- <Button  appearance="primary" intent="warning" id='blogin'
+ <Button variant="outline-danger" id='blogin'
          onClick={()=>this.login()}>Save</Button> 
    </Col> </Row>
 

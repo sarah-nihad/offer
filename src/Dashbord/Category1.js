@@ -50,12 +50,6 @@ class Category1 extends React.Component{
 
   login(id){
 
-  
-    
-  
-  
-   
-  
      let formData = new FormData();
      var headers = {
        "Content-Type": "application/json",
@@ -64,8 +58,6 @@ class Category1 extends React.Component{
   
      formData.append("category_id", id);
   
-     
-    
      axios({
        url: host+ `api/v1/cat/delete`,
        method: "POST",
@@ -84,11 +76,11 @@ class Category1 extends React.Component{
   
       }
   
-      login2(id,name,email,phone,location,file){
+      login2(id,name,email,phone,location){
         var name=this.state.name;
         var email=this.state.email;
         var phone=this.state.phone;
-        var file=this.state.file;
+        // var file=this.state.file;
         var location=this.state.location;
         let formData = new FormData();
         var headers = {
@@ -100,9 +92,9 @@ class Category1 extends React.Component{
         formData.append("email", email);
         formData.append("phone", phone);
         formData.append("location", location);
-        formData.append("file", file);
+        // formData.append("file", file);
         axios({
-          url: host+ `api/v1/cat/edite`,
+          url: host+ `api/v1/cat/update`,
         
           method: "POST",
           data: formData,
@@ -112,13 +104,47 @@ class Category1 extends React.Component{
             this.componentDidMount()
           })
           .catch(function (error) {
-            console.log(error.response.data)
+            // console.log(error.response.data)
             if (error.response) {
               toaster.danger(error.response.data.mgs);
             }
           });
      
          }
+
+
+         logo(id,file){
+   
+          var file=this.state.file;
+        
+          let formData = new FormData();
+          var headers = {
+            "Content-Type": "application/json",
+            token: cookies.get("token")
+          };
+          formData.append("category_id", id);
+          formData.append("file", file);
+       
+         
+          axios({
+            url: host+ `api/v1/cat/edite`,
+          
+            method: "POST",
+            data: formData,
+              headers: headers
+          }) .then(response => {
+             toaster.success('logo has been Edit successfully');
+              this.componentDidMount()
+            })
+            .catch(function (error) {
+              // console.log(error.response.data)
+              if (error.response) {
+                toaster.danger(error.response.data.mgs);
+              }
+            });
+       
+           }
+  
 
 
 
@@ -130,7 +156,7 @@ class Category1 extends React.Component{
 
 
 
-   <Table responsive="lg" striped bordered hover variant="" id='t1'>
+   <Table responsive="lg" striped bordered hover variant="" >
   <thead>
    
     <tr>
@@ -205,9 +231,16 @@ class Category1 extends React.Component{
 />
 <br/>
                             <button  onClick={(e) => {
-                    this.login2(item._id,item.name,item.email,item.phone,item.location,item.file)
+                    this.login2(item._id,item.name,item.email,item.phone,item.location)
 
-                  }} >Edit</button>
+                  }} >Edit information</button> <br/>
+
+
+<button  onClick={(e) => {
+                    this.logo(item._id,item.file)
+
+                  }} >Edit Logo</button>
+
       </Dialog>
 
       <Button onClick={() => setState({ isShown: true })}>   <i className="fas fa-edit"></i>  </Button>

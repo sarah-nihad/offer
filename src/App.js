@@ -179,6 +179,7 @@ class App extends Component {
               <Route path='/Addusers' component={Si} />
               <Route path='/Allcard' component={Si} />
               <Route path='/Allbanner' component={Si} />
+              <Route path='/Description' component={Si} />
               <Route path='/Ratingdescription' component={Si} />
             </Switch>
           </Context.Provider>

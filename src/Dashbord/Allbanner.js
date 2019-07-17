@@ -107,7 +107,7 @@ class Allbanner extends React.Component{
  {this.state.data.map(((item,i) =>
   
     
-   <p  key={i}   >{item.name}      
+   <div  key={i}   >{item.name}      
      <div id='icon111'> <ListItemIcon style={{ color: 'black', paddingLeft: 30 }}>   
    <i className="fas fa-trash"   onClick={(e) => {
                     this.login(item._id)
@@ -122,7 +122,7 @@ class Allbanner extends React.Component{
 
 </div>
 <hr/>
-   </p>
+   </div>
     
    
      ))}

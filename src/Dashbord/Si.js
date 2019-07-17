@@ -41,6 +41,7 @@ import Addusers from './Addusers';
 import Context from '../component/context';
 import Login1 from '../component/Login1';
 import Ratingdescription from './Ratingdescription';
+import Description from './Description';
 const cookies = new Cookies();
 function rendericon(props) {
  
@@ -72,6 +73,9 @@ else if (props.match.path === '/Addsection') {
     return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
   }
   else if (props.match.path === '/Section1') {
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+  }
+  else if (props.match.path === '/Description') {
     return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
   }
   else if (props.match.path === '/Addusers') {
@@ -233,7 +237,7 @@ class ResponsiveDrawer extends React.Component {
                 <div className={classes.toolbar} />
         
                 <Link to='/Resturant'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-star" ></i>
@@ -245,7 +249,7 @@ class ResponsiveDrawer extends React.Component {
                 </Link>
 
                 <Link to='/Ratingdescription'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-star" ></i>
@@ -255,9 +259,19 @@ class ResponsiveDrawer extends React.Component {
 
                   </List>
                 </Link>
-              
+                <Link to='/Description'>
+                  <List style={{padding:0}}>
+
+                    <ListItem button>
+                      <ListItemIcon style={{ color: 'white', paddingLeft: 30,fontSize:'16px' }}>  <i className="far fa-id-badge" ></i>
+                      </ListItemIcon>
+                      <ListItemText ><span style={{ color: 'white', fontWeight: '500',fontSize:'15px'}}> profile Info.</span></ListItemText>
+                    </ListItem>
+
+                  </List>
+                </Link>
                 <Link to='/Section1'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
@@ -269,7 +283,7 @@ class ResponsiveDrawer extends React.Component {
                 </Link>
 
                 <Link to='/Category1'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
@@ -281,10 +295,10 @@ class ResponsiveDrawer extends React.Component {
                 </Link>
 
                 <Link to='/Allcard'>
-                  <List>
+                  <List style={{padding:0}}>
 
-                    <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
+                    <ListItem button >
+                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="far fa-credit-card" ></i>
                       </ListItemIcon>
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Card</span></ListItemText>
                     </ListItem>
@@ -293,7 +307,7 @@ class ResponsiveDrawer extends React.Component {
                 </Link>
 
                 <Link to='/Allbanner'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
@@ -305,7 +319,7 @@ class ResponsiveDrawer extends React.Component {
                 </Link>
 
                 <Link to='/Addusers'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}> <i class="fas fa-user-plus"></i>
@@ -342,7 +356,7 @@ class ResponsiveDrawer extends React.Component {
                   </List>
                 </Link> */}
                 <Link to='/Resturant'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
@@ -353,7 +367,7 @@ class ResponsiveDrawer extends React.Component {
                   </List>
                 </Link>
                 <Link to='/Ratingdescription'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
@@ -364,10 +378,21 @@ class ResponsiveDrawer extends React.Component {
                   </List>
                 </Link>
 
+                <Link to='/Description'>
+                  <List style={{padding:0}}>
+
+                    <ListItem button>
+                      <ListItemIcon style={{ color: 'white', paddingLeft: 30,fontSize:'18px' }}>  
+                       <i className="far fa-id-badge" ></i>        </ListItemIcon>
+                      <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}> profile Info.</span></ListItemText>
+                    </ListItem>
+
+                  </List>
+                </Link>
 
 
                 <Link to='/Section1'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
@@ -380,7 +405,7 @@ class ResponsiveDrawer extends React.Component {
 
                 
                 <Link to='/Category1'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
@@ -392,11 +417,11 @@ class ResponsiveDrawer extends React.Component {
                 </Link>
 
                 <Link to='/Allcard'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="fas fa-table" ></i>        </ListItemIcon>
+                       <i className="far fa-credit-card" ></i>        </ListItemIcon>
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Card</span></ListItemText>
                     </ListItem>
 
@@ -404,7 +429,7 @@ class ResponsiveDrawer extends React.Component {
                 </Link>
 
                 <Link to='/Allbanner'>
-                  <List>
+                  <List style={{padding:0}}>
 
                     <ListItem button>
                       <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
@@ -506,6 +531,9 @@ const renderPage = (props) => {
   }
   else if (props.match.path === '/Allcard') {
     return (<Allcard />)
+  }
+  else if (props.match.path === '/Description') {
+    return (<Description />)
   }
   else if (props.match.path === '/Allbanner') {
     return (<Allbanner />)

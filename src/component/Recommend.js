@@ -50,7 +50,7 @@ class Recommend extends Component{
                 <StarRatings 
            
        
-            rating={item.category_id.rating}
+            // rating={item.category_id.rating}
               starRatedColor=" rgb(255, 174, 0)"
               starDimension="15px"
            

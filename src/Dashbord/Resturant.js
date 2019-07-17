@@ -41,7 +41,7 @@ class Resturant extends Component{
     render(){
         return(
             <div>
-              <Table responsive="lg" striped bordered hover variant="" id='t1'>
+              <Table responsive="lg" striped bordered hover variant="">
   <thead>
    
     <tr>
@@ -49,7 +49,7 @@ class Resturant extends Component{
       <th> name</th>
       <th>Rating</th>
      
-      <th>description</th>
+  
      
     
     </tr>
@@ -67,12 +67,13 @@ class Resturant extends Component{
             //  value ={item.starts}
              rating={item.rating}
                starRatedColor="#f7c20f"
+               starDimension="25px"
                starSpacing="0px"
                numberOfStars={5}
             
                    />
                     </td> 
-      <td>{item.description}</td>
+ 
      
     
     </tr>
