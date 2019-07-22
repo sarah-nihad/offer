@@ -1,13 +1,13 @@
 import React from 'react';
 import './task.css';
-import {Table} from 'react-bootstrap';
+// import {Table} from 'react-bootstrap';
 import host from '../component/host';
 import axios from 'axios';
 import Component from '@reactions/component';
-import StarRatings from 'react-star-ratings';
+// import StarRatings from 'react-star-ratings';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 // import { Dialog, Pane } from 'evergreen-ui';
-import {TextInput,Select,Button,toaster,FilePicker,Pane,Dialog } from 'evergreen-ui';
+import {Button,toaster,FilePicker,Pane,Dialog } from 'evergreen-ui';
 import Cookies from 'universal-cookie';
  const cookies =new Cookies();
 // const host='https://tab3.herokuapp.com/';
@@ -54,7 +54,8 @@ class Section1 extends React.Component{
        method: "POST",
        data: formData,
          headers: headers
-     }) .then(response => {
+     })
+      .then(response => {
         toaster.success('Section has been deleted successfully');
          this.componentDidMount()
        })
@@ -86,7 +87,8 @@ class Section1 extends React.Component{
           method: "POST",
           data: formData,
             headers: headers
-        }) .then(response => {
+        })
+         .then(response => {
            toaster.success('logo has been Edit successfully');
             this.componentDidMount()
           })
@@ -118,7 +120,8 @@ class Section1 extends React.Component{
           method: "POST",
           data: formData,
             headers: headers
-        }) .then(response => {
+        })
+         .then(response => {
            toaster.success('Section has been edit successfully');
             this.componentDidMount()
           })

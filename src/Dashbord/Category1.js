@@ -63,7 +63,8 @@ class Category1 extends React.Component{
        method: "POST",
        data: formData,
          headers: headers
-     }) .then(response => {
+     })
+      .then(response => {
         toaster.success('Category has been deleted successfully');
         this.componentDidMount()
        })
@@ -99,7 +100,8 @@ class Category1 extends React.Component{
           method: "POST",
           data: formData,
             headers: headers
-        }) .then(response => {
+        }) 
+        .then(response => {
            toaster.success('Category has been Edit successfully');
             this.componentDidMount()
           })
@@ -132,7 +134,8 @@ class Category1 extends React.Component{
             method: "POST",
             data: formData,
               headers: headers
-          }) .then(response => {
+          }) 
+          .then(response => {
              toaster.success('logo has been Edit successfully');
               this.componentDidMount()
             })

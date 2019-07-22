@@ -1,12 +1,10 @@
 import React,{Component} from 'react';
 
 import {Row,Col} from  'react-bootstrap';
-import Cookies from 'universal-cookie';
-import axios from 'axios';
-import host from './host';
+
 import Context from './context';
 import StarRatings from 'react-star-ratings';
- const cookies =new Cookies();
+
 class Recommend extends Component{
   
     
@@ -35,13 +33,13 @@ class Recommend extends Component{
   
 <div className="container">
 {/* <img src={require('./asdf.png')} id='img1' /> */}
-<img src={`https://www.orothe.com/api/v1/`+item.logo} id='img1' />
+<img src={`https://www.orothe.com/api/v1/`+item.logo} id='img1' alt='offer' />
   <div className="text-block"> 
-  <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' /></div>
+  <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' alt='offer' /></div>
   </div>
 </div>
 
-<div id='name1'>{item. description}</div>
+<div id='name1'> <div id='sabdfj'>  {item.description}  </div>   </div>
 
 
 <div id='popstar'>
@@ -50,7 +48,7 @@ class Recommend extends Component{
                 <StarRatings 
            
        
-            // rating={item.category_id.rating}
+            rating={item.category_id.rating}
               starRatedColor=" rgb(255, 174, 0)"
               starDimension="15px"
            

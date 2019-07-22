@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
 import {Carousel} from 'react-bootstrap';
 
-import axios from 'axios';
-import host from './host';
 import Context from './context';
 // class ControlledCarousel extends Component {
     class Slide1 extends Component{
@@ -47,7 +45,7 @@ import Context from './context';
           <Carousel.Item>
             
                <div id='ss'>
-            <img  src={'https://www.orothe.com/api/v1/'+item.Image}  id='imgslid'/> 
+            <img  src={'https://www.orothe.com/api/v1/'+item.Image}  id='imgslid' alt='offer' /> 
   {/* <img src={require('./350.jpg')} id='imgslid' />   */}
 
             <Carousel.Caption>

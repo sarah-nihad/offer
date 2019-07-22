@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Navbar, Nav, Row, Col, ButtonToolbar, SplitButton, Dropdown, InputGroup, FormControl, DropdownButton } from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom';
+import { Navbar, Nav,  ButtonToolbar, Dropdown, InputGroup, DropdownButton } from 'react-bootstrap';
+import { Link} from 'react-router-dom';
 import axios from 'axios';
 import host from './host';
 import Component from "@reactions/component";
-import themeable from 'react-themeable';
+
 import Autosuggest from 'react-autosuggest';
 import Context from './context';
-import { Popover, Pane, Text, Avatar, SearchInput } from 'evergreen-ui';
+import { Popover, Pane,  Avatar } from 'evergreen-ui';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -50,15 +50,15 @@ const renderSuggestion = suggestion => (
   </div>
 );
 
-const theme = {
-  suggestion: {
-    color: 'red'
-  },
-  suggestionsContainer: {
-    color: 'red',
-    backgroundColor: 'red'
-  }
-};
+// const theme = {
+//   suggestion: {
+  
+//   },
+//   suggestionsContainer: {
+//     color: 'red',
+//     backgroundColor: 'red'
+//   }
+// };
 
 
 class Nav2 extends React.Component {
@@ -156,7 +156,7 @@ class Nav2 extends React.Component {
 
   render() {
     const { value, suggestions } = this.state;
-    const theme = themeable(this.props.theme);
+
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
       placeholder: '',
@@ -177,9 +177,9 @@ class Nav2 extends React.Component {
             <Navbar expand="lg" id="navmai">
 
 
-              <Navbar.Brand style={{ paddingLeft: '3%' }}>  <img src={require('./asdf.png')} id='img22' /></Navbar.Brand>
+              <Navbar.Brand style={{ paddingLeft: '3%' }}>  <img src={require('./asdf.png')} id='img22' alt='offer' /></Navbar.Brand>
 
-              <Navbar.Brand style={{ paddingLeft: '3%' }}>  <img src={require('./with.png')} id='img223sss' /></Navbar.Brand>
+              <Navbar.Brand style={{ paddingLeft: '3%' }}>  <img src={require('./with.png')} id='img223sss' alt='offer' /></Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ color: 'white' }} />
               <Navbar.Collapse id="basic-navbar-nav" style={{ color: 'white' }} >
                 <Nav className="mr-auto">
@@ -264,7 +264,7 @@ class Nav2 extends React.Component {
 
                                       }} >
                                       <div id='navsaradirection1'>
-                                        <img src={'https://www.orothe.com/api/v1/' + item.logo} id='navsectionlogo' />
+                                        <img src={'https://www.orothe.com/api/v1/' + item.logo} id='navsectionlogo' alt='offer' />
                                         {/* <img src={require('./sss.png')} id='navsectionlogo'  />  */}
                                         <span style={{ marginLeft: '5px' }}>   {item.name}     </span>
                                       </div>

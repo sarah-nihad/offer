@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './task.css'
 import { Row,Col,Button} from 'react-bootstrap';
-import {TextInput,Select,toaster,FilePicker } from 'evergreen-ui';
-import DatePicker from "react-datepicker";
+import {TextInput,toaster,FilePicker } from 'evergreen-ui';
+// import DatePicker from "react-datepicker";
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -80,7 +80,8 @@ class Addusers extends Component {
          method: "POST",
          data: formData,
            headers: headers
-       }) .then(response => {
+       }) 
+       .then(response => {
           toaster.success('user has been added successfully');
             console.log(response)
          })

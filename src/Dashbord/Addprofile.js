@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './task.css';
-import { Row, Col, Form, InputGroup ,Button} from 'react-bootstrap';
-import { TextInput, Select,  toaster, FilePicker, Pane, Dialog } from 'evergreen-ui';
-import DatePicker from "react-datepicker";
+import { Row, Col, Form,Button} from 'react-bootstrap';
+import { TextInput,  toaster, FilePicker} from 'evergreen-ui';
+// import DatePicker from "react-datepicker";
 import axios from 'axios';
 import host from '../component/host';
 import "react-datepicker/dist/react-datepicker.css";
@@ -56,7 +56,8 @@ class Addprofile extends Component {
       method: "POST",
       data: formData,
       headers: headers
-    }).then(response => {
+    })
+    .then(response => {
       //delete the chosen item
       console.log(cards_id);
       console.log(this.state.data1)
@@ -93,7 +94,8 @@ class Addprofile extends Component {
       method: "POST",
       data: formData,
       headers: headers
-    }).then(response => {
+    })
+    .then(response => {
       //delete the chosen item
       console.log(this.state._id)
 
@@ -126,7 +128,8 @@ class Addprofile extends Component {
       method: "POST",
       data: formData,
       headers: headers
-    }).then(response => {
+    })
+    .then(response => {
       //delete the chosen item
       console.log(this.state._id)
 
@@ -159,7 +162,8 @@ class Addprofile extends Component {
       method: "POST",
       data: formData,
       headers: headers
-    }).then(response => {
+    })
+    .then(response => {
 
       console.log(this.state._id)
 

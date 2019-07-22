@@ -55,7 +55,8 @@ class Allbanner extends React.Component{
        method: "POST",
        data: formData,
          headers: headers
-     }) .then(response => {
+     })
+      .then(response => {
         toaster.success('Banner has been deleted successfully');
          this.componentDidMount()
        })
@@ -84,7 +85,8 @@ class Allbanner extends React.Component{
           method: "POST",
           data: formData,
             headers: headers
-        }) .then(response => {
+        }) 
+        .then(response => {
            toaster.success('banner has been edit successfully');
             this.componentDidMount()
           })

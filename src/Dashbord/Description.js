@@ -1,8 +1,8 @@
 import React from 'react';
 import './task.css';
-import { Row, Col, Form, InputGroup,Table, } from 'react-bootstrap';
-import { TextInput, Select, Button, toaster, FilePicker, Pane, Dialog } from 'evergreen-ui';
-import DatePicker from "react-datepicker";
+import { Row, Col, Form } from 'react-bootstrap';
+import {  Button, toaster,  Pane, Dialog } from 'evergreen-ui';
+// import DatePicker from "react-datepicker";
 import axios from 'axios';
 import Component from '@reactions/component';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -66,7 +66,8 @@ class Description extends  React.Component{
       method: "POST",
       data: formData,
         headers: headers
-    }) .then(response => {
+    })
+     .then(response => {
        toaster.success('description has been deleted successfully');
        this.componentDidMount()
       })
@@ -93,7 +94,8 @@ class Description extends  React.Component{
         method: "POST",
         data: formData,
           headers: headers
-      }) .then(response => {
+      })
+       .then(response => {
          toaster.success('menu has been deleted successfully');
          this.componentDidMount()
         })
@@ -123,7 +125,8 @@ class Description extends  React.Component{
         method: "POST",
         data: formData,
           headers: headers
-      }) .then(response => {
+      }) 
+      .then(response => {
          toaster.success('description has been edit successfully');
           this.componentDidMount()
         })
@@ -322,7 +325,7 @@ class Description extends  React.Component{
 
 {this.state.data3.map(((item,i) =>
   <Row  key={i}   >
-  <Col xs={12}> <img  src={`https://www.orothe.com/api/v1/`+item.image} style={{height:'80px',width:'200px' }} />    
+  <Col xs={12}> <img  src={`https://www.orothe.com/api/v1/`+item.image} style={{width:'200px' }} />    
   <div id='icon111'> <ListItemIcon style={{ color: 'black', paddingLeft: 30 }}>   
 <i className="fas fa-trash"   onClick={(e) => {
                  this.deletmenu(item._id)

@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Addcard from './Addcard';
 // import Border_all from '@material-ui/icons/Border_all';
 
-import { Row, Col,Navbar,Nav } from 'react-bootstrap';
+import { Navbar,Nav } from 'react-bootstrap';
 
 import { Popover, Pane, Avatar } from 'evergreen-ui';
 
@@ -44,13 +44,7 @@ import Ratingdescription from './Ratingdescription';
 import Description from './Description';
 const cookies = new Cookies();
 function rendericon(props) {
- 
-  // if (props.match.path === '/Home') {
-  //   return ( <Link to='./Add' id='ll'><i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
-  // }
-//   else if (props.match.path === '/Discountuser') {
-//     return ( <Link to='./Add' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
-//   }
+
   if (props.match.path === '/Addcompany') {
     return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
   }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../Dashbord/task.css';
-import { TextInput, FilePicker, Button, toaster } from 'evergreen-ui';
+import { TextInput, Button} from 'evergreen-ui';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
 import Cookies from 'universal-cookie';
 import Context from './context';
 import host from './host';
@@ -52,7 +52,7 @@ class Login extends Component {
        {/* <div> */}
         <Row style={{ marginRight: '0px' }} className="justify-content-md-center">
           <Col id="colimg" xs={12} md={12} lg={12}>
-            <img src={require('./poerd by.png')} id="img" />
+            <img src={require('./poerd by.png')} id="img" alt='offer' />
           </Col></Row>
 <div id='logindashbord2sar'>
 
@@ -69,7 +69,7 @@ class Login extends Component {
               <form>
                
 <div id='loginame'>
-<img src={require('./d.jpg')} id="imglog" />
+<img src={require('./d.jpg')} id="imglog" alt='offer' />
 
                   <p></p>
                   <TextInput id='sro3531'

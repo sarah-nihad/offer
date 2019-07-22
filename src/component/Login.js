@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './nav1.css';
 import {Row,Col} from 'react-bootstrap';
-import {TextInput,Select,Button,toaster} from 'evergreen-ui';
+import {TextInput,toaster} from 'evergreen-ui';
 import host from './host';
 import axios from 'axios';
 import Foot1 from './Foot1';
@@ -35,14 +35,9 @@ import Cookies from 'universal-cookie';
          "Content-Type": "application/json",
          token: cookies.get("token")
        };
-   
-   
        formData.append("phone", phone);
-  
        formData.append("password", password);
-     
-    
-     
+  
        axios({
          url:host+ `api/v1/user/login/`,
          method: "POST",

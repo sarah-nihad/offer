@@ -74,7 +74,8 @@ class Addbanner extends Component {
          method: "POST",
          data: formData,
            headers: headers
-       }) .then(response => {
+       }) 
+       .then(response => {
           toaster.success('Banner has been added successfully');
             console.log(response)
          })

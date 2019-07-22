@@ -1,8 +1,8 @@
 import React from 'react';
 import './task.css';
-import { Row, Col, Form, InputGroup,Table, } from 'react-bootstrap';
-import { TextInput, Select, Button, toaster, FilePicker, Pane, Dialog } from 'evergreen-ui';
-import DatePicker from "react-datepicker";
+import { Row, Col, Form,Table} from 'react-bootstrap';
+import { TextInput,  Button, toaster, FilePicker, Pane, Dialog } from 'evergreen-ui';
+// import DatePicker from "react-datepicker";
 import axios from 'axios';
 import Component from '@reactions/component';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -79,7 +79,8 @@ class Allcard extends  React.Component{
       data: formData,
         headers: headers,
       
-    }) .then(response => {
+    })
+     .then(response => {
        toaster.success('Card has been edit successfully');
        this.componentDidMount()
       })
@@ -112,7 +113,8 @@ class Allcard extends  React.Component{
         method: "POST",
         data: formData,
           headers: headers
-      }) .then(response => {
+      }) 
+      .then(response => {
          toaster.success('logo has been Edit successfully');
           this.componentDidMount()
         })
@@ -146,7 +148,8 @@ class Allcard extends  React.Component{
         method: "POST",
         data: formData,
           headers: headers
-      }) .then(response => {
+      }) 
+      .then(response => {
          toaster.success('Card has been delete successfully');
          this.componentDidMount()
         })

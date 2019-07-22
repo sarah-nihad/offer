@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './task.css';
-import { Row,Col,Form,InputGroup,Button } from 'react-bootstrap';
-import {TextInput,Select,toaster,FilePicker,Pane,Dialog } from 'evergreen-ui';
-import DatePicker from "react-datepicker";
+import { Row,Col,Button } from 'react-bootstrap';
+import {TextInput,toaster,FilePicker} from 'evergreen-ui';
+// import DatePicker from "react-datepicker";
  import axios from 'axios';
  import host from '../component/host';
 import "react-datepicker/dist/react-datepicker.css";
@@ -62,7 +62,8 @@ handleChange(date) {
      method: "POST",
      data: formData,
        headers: headers
-   }) .then(response => {
+   }) 
+   .then(response => {
       toaster.success('Section has been added successfully');
         console.log(response)
      })

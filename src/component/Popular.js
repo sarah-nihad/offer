@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
 import { Row, Col } from 'react-bootstrap';
-import Cookies from 'universal-cookie';
+
 import StarRatings from 'react-star-ratings';
-import axios from 'axios';
-import host from './host';
+
 import Context from './context';
-const cookies = new Cookies();
+
 class Recommend extends Component {
-  constructor() {
-    super();
-
-
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageLoadError: true,
+    };
+}
 
 
 
@@ -41,14 +41,14 @@ class Recommend extends Component {
                         {console.log('https://www.orothe.com/api/v1/' + item.logo)
                         }
                         {/* <img src={require('./asdf.png')} id='img1' /> */}
-                        <img src={'https://www.orothe.com/api/v1/' + item.logo} id='img1' />
+                        <img src={'https://www.orothe.com/api/v1/' +  item.logo} id='img1' alt='offer' />
                         <div className="text-block">
-                          <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' /></div>
+                          <div id='off'>{   item.type_value}   <img src={require('./d.png')} id='imgoff' alt='offer' /></div>
                         </div>
                       </div>
 
                       {/* <img src={require('./asdf.png')} id='img1' /> */}
-                      <div id='name1' key={item.category_id}  >{item.description} </div>
+                      <div id='name1' key={item.category_id}  > <div id='sabdfj'>{item.description} </div> </div>
 
                       {/* <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' /></div> */}
                       <div id='popstar'>

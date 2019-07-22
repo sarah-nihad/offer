@@ -79,7 +79,8 @@ class Addcard extends Component {
          method: "POST",
          data: formData,
            headers: headers
-       }) .then(response => {
+       })
+        .then(response => {
           toaster.success('Card has been added successfully');
             console.log(response)
          })

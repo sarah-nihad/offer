@@ -19,7 +19,7 @@ class Profile extends Component{
           type:'',
           type_value:'',
           uptime:'',
-          logo:'',
+        
           phone:'',
           location:'',
           cards:'',
@@ -117,7 +117,7 @@ class Profile extends Component{
 
 </div>
 <div id='profilelogo' >
-           <img src={`https://www.orothe.com/api/v1/`+item.logo} id='img2233' />
+           <img src={`https://www.orothe.com/api/v1/`+item.logo} id='img2233' alt='offer' />
              {/* <img src={require('./sss.jpg')} id='img2233' /> */}
         
              </div>
@@ -130,15 +130,15 @@ class Profile extends Component{
            </div>
  ))}
            <div id='sarahprofile23f'>
-           <div id ='offer12'>
-<Row style={{marginRight:'0px'}} id='rrr'>
+           {/* <div id ='offer12'> */}
+{/* <Row style={{marginRight:'0px'}} id='rrr'>
  {this.state.data.map(((item,i) =>
     <Col xs={6} md={4} lg={3} xl={2} id='col21'  key={i}>
   
 <div id ='cardprofile3'>
 
 <div className="container">
- {/* <img src={require('./sss.jpg')} id='img1' />  */}
+
  <img src={`https://www.orothe.com/api/v1/`+item.logo} id='img1' /> 
   <div className="text-block3"> 
   <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' /></div>
@@ -146,7 +146,7 @@ class Profile extends Component{
 
 
 
-<div id='name1'>{item. description}</div>
+<div id='name1'> <div id='sabdfj'>{item. description}</div></div>
 
 </div>
 
@@ -156,12 +156,59 @@ class Profile extends Component{
 </Col>
  ))}
 
-</Row>
+</Row> */}
+
+
+<div id='offer12'>
+              <Row style={{ marginRight: '0px' }} id='rrr'>
+
+              {this.state.data.map(((item,i) =>
+                  <Col xs={6} md={4} lg={3} xl={2} id='col21' key={i}>
+
+                    <div id='cardprofile'>
+
+                      <div className="container">
+                   
+                        {/* <img src={require('./asdf.png')} id='img1' /> */}
+                        <img src={'https://www.orothe.com/api/v1/' + item.logo} id='img1' alt='offer' />
+                        <div className="text-block">
+                          <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' alt='offer' /></div>
+                        </div>
+                      </div>
+
+                      {/* <img src={require('./asdf.png')} id='img1' /> */}
+                      <div id='name1' key={item.category_id}  > <div id='sabdfj'>{item.description} </div> </div>
+
+                    
+
+                    </div>
+
+                  </Col>
+                ))}
+
+              </Row>
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style={{marginTop:'40px'}}></div>
 <Row style={{marginRight:'0px'}} id='rrr'>
 {this.state.data3.map(((item,i) =>
-  <Col xs={12} md={6} lg={4} style={{display:'flex',justifyContent:'center',paddingTop:'10px'}} id='profilemenu1'>
-    <img  src={`https://www.orothe.com/api/v1/`+item.image} style={{maxHeight:'400px' }} id='imgmenu1'/>
+  <Col xs={12} md={6} xl={4} style={{display:'flex',justifyContent:'center',paddingTop:'10px'}} id='profilemenu1'>
+    <img  src={`https://www.orothe.com/api/v1/`+item.image} style={{maxHeight:'400px' }} id='imgmenu1' alt='offer' />
     
   </Col>
 ))}

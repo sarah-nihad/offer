@@ -1,17 +1,11 @@
 import React,{Component} from 'react';
 
 import {Row,Col} from  'react-bootstrap';
-import Cookies from 'universal-cookie';
-import axios from 'axios';
-import host from './host';
+
 import Context from './context';
-import StarRatings from 'react-star-ratings';
- const cookies =new Cookies();
+
 class Visited extends Component{
-    constructor(){
-        super();
-     
-      }
+  
     
     
     
@@ -35,7 +29,7 @@ class Visited extends Component{
       window.location.href = `/profile?id=${item._id}`;
   
     }} >
- <img src={`https://www.orothe.com/api/v1/`+item.logo} id='img1' />
+ <img src={`https://www.orothe.com/api/v1/`+item.logo} id='img1' alt='offer' />
  {/* <img src={require('./asdf.png')} id='img1' /> */}
  
 {/* <div id='name1'>{item. description}</div> */}
@@ -43,7 +37,7 @@ class Visited extends Component{
 {/* <div id='off'>{item.type_value}   <img src={require('./d.png')} id='imgoff' /></div> */}
 
 
-<div id='name1'>{item.name}</div>
+<div id='name1'> <div id='sabdfj'> {item.name}  </div>  </div>
 </div>
 
 </Col>

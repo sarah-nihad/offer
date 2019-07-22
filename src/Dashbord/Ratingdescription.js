@@ -1,11 +1,11 @@
 import React from 'react';
 import './task.css';
-import { Row, Col, Form, InputGroup,Table, } from 'react-bootstrap';
-import { TextInput, Select, Button, toaster, FilePicker, Pane, Dialog } from 'evergreen-ui';
-import DatePicker from "react-datepicker";
+import { Row, Col, Form } from 'react-bootstrap';
+import {  toaster} from 'evergreen-ui';
+// import DatePicker from "react-datepicker";
 import axios from 'axios';
-import Component from '@reactions/component';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+// import Component from '@reactions/component';
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
 import host from '../component/host';
 import "react-datepicker/dist/react-datepicker.css";
 import Cookies from 'universal-cookie';
@@ -70,7 +70,8 @@ class Ratingdescription extends  React.Component{
       method: "POST",
       data: formData,
         headers: headers
-    }) .then(response => {
+    })
+     .then(response => {
        toaster.success('Card has been deleted successfully');
        this.componentDidMount()
       })
