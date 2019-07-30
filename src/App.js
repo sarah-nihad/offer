@@ -8,6 +8,7 @@ import Profile from './component/Profile';
 import AllCategory from './component/AllCategory'
 import Maincard from './component/Maincard';
 import axios from 'axios';
+import POS from './component/POS';
 import host from './component/host';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Cookies from 'universal-cookie';
@@ -159,7 +160,7 @@ class App extends Component {
 
 
             <Route exact path='/' component={Maincard} />
-
+            <Route path='/POS' component={POS} />
             <Route path='/Login' component={Login} />
             <Route path='/Login1' component={Login1} />
             <Route path='/Profile' component={Profile} />
@@ -181,6 +182,8 @@ class App extends Component {
               <Route path='/Allbanner' component={Si} />
               <Route path='/Description' component={Si} />
               <Route path='/Ratingdescription' component={Si} />
+              <Route path='/Addpos' component={Si} />
+              <Route path='/Allrecomnd' component={Si} />
             </Switch>
           </Context.Provider>
         </BrowserRouter>

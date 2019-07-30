@@ -38,10 +38,12 @@ import Addrecomnd from './Addrecomnd';
 import Resturant from './Resturant';
 import Section1 from './Section1';
 import Addusers from './Addusers';
+import Addpos from './Addpos';
 import Context from '../component/context';
 import Login1 from '../component/Login1';
 import Ratingdescription from './Ratingdescription';
 import Description from './Description';
+import Allrecomnd from './Allrecomnd';
 const cookies = new Cookies();
 function rendericon(props) {
 
@@ -87,6 +89,12 @@ else if (props.match.path === '/Addsection') {
   }
   
   else if (props.match.path === '/Ratingdescription') {
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+  }
+  else if (props.match.path === '/Addpos') {
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+  }
+  else if (props.match.path === '/Allrecomnd') {
     return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
   }
 }
@@ -287,6 +295,17 @@ class ResponsiveDrawer extends React.Component {
 
                   </List>
                 </Link>
+                <Link to='/Allrecomnd'>
+                  <List style={{padding:0}}>
+
+                    <ListItem button>
+                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
+                      </ListItemIcon>
+                      <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Recommnd</span></ListItemText>
+                    </ListItem>
+
+                  </List>
+                </Link>
 
                 <Link to='/Allcard'>
                   <List style={{padding:0}}>
@@ -311,6 +330,24 @@ class ResponsiveDrawer extends React.Component {
 
                   </List>
                 </Link>
+
+
+                <Link to='/Addpos'>
+                  <List style={{padding:0}}>
+
+                    <ListItem button>
+                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}> <i class="far fa-plus-square"></i>
+                      </ListItemIcon>
+                      <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>اضافة نقاط بيع </span></ListItemText>
+                    </ListItem>
+
+                  </List>
+                </Link>
+
+
+
+
+
 
                 <Link to='/Addusers'>
                   <List style={{padding:0}}>
@@ -410,6 +447,21 @@ class ResponsiveDrawer extends React.Component {
                   </List>
                 </Link>
 
+                <Link to='/Allrecomnd'>
+                  <List style={{padding:0}}>
+
+                    <ListItem button>
+                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
+                       <i className="fas fa-table" ></i>        </ListItemIcon>
+                      <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>Recommnd</span></ListItemText>
+                    </ListItem>
+
+                  </List>
+                </Link>
+
+
+
+
                 <Link to='/Allcard'>
                   <List style={{padding:0}}>
 
@@ -433,6 +485,25 @@ class ResponsiveDrawer extends React.Component {
 
                   </List>
                 </Link>
+
+
+
+                <Link to='/Addpos'>
+                  <List>
+
+                    <ListItem button>
+                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
+                      <i className="far fa-plus-square"></i>       </ListItemIcon>
+                      <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>اضافة نقاط بيع</span></ListItemText>
+                    </ListItem>
+
+                  </List>
+                </Link>
+
+
+
+
+
 
                 <Link to='/Addusers'>
                   <List>
@@ -534,6 +605,12 @@ const renderPage = (props) => {
   }
   else if (props.match.path === '/Ratingdescription') {
     return (<Ratingdescription />)
+  }
+  else if (props.match.path === '/Addpos') {
+    return (<Addpos />)
+  }
+  else if (props.match.path === '/Allrecomnd') {
+    return (<Allrecomnd />)
   }
 }
 export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);

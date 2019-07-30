@@ -320,7 +320,7 @@ class Nav2 extends React.Component {
 
                   <Link to='./Login' id="contact">  تسجيل الدخول </Link>
 
-
+                  <Link to='./POS' id="contact"> نقاط البيع   </Link>
 
                   <Link to='./' id="contact"> الرئيسية </Link>
 <div id='provnav'>
