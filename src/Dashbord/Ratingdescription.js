@@ -197,16 +197,6 @@ class Ratingdescription extends  React.Component{
               </div>
 
 
-
-
-
-
-
-
-
-
-
-
            
             </Col>
 

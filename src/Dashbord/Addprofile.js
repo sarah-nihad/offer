@@ -90,7 +90,7 @@ class Addprofile extends Component {
     formData.append("category_id", category_id);
 
     axios({
-      url: host + `api/v1/cat/notification`,
+      url: `api/v1/cat/notification`,
       method: "POST",
       data: formData,
       headers: headers
@@ -101,13 +101,13 @@ class Addprofile extends Component {
 
 
       //fetch 
-      toaster.success('Notification has been send successfully');
+      // toaster.success('Notification has been send successfully');
       //console.log(response)
     })
       .catch(function (error) {
         console.log(error.response.data)
         if (error.response) {
-          toaster.danger(error.response.data.mgs);
+          // toaster.danger(error.response.data.mgs);
         }
       });
 

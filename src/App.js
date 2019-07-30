@@ -5,7 +5,7 @@ import Context from './component/context';
 import Si from './Dashbord/Si';
 import './component/nav1.css';
 import Profile from './component/Profile';
-
+import AllCategory from './component/AllCategory'
 import Maincard from './component/Maincard';
 import axios from 'axios';
 import host from './component/host';
@@ -163,7 +163,7 @@ class App extends Component {
             <Route path='/Login' component={Login} />
             <Route path='/Login1' component={Login1} />
             <Route path='/Profile' component={Profile} />
-
+            <Route path='/AllCategory' component={AllCategory} />
 
             <Switch>
               <Route path='/Home' component={Si} />

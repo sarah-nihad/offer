@@ -237,42 +237,51 @@ class Nav2 extends React.Component {
 
 
 
-                          <ButtonToolbar id='left' key={i}>
+                          {/* <ButtonToolbar id='left' key={i}>
                             {['left'].map(direction => (
                               <Component initialState={{ cat: [], data: [] }}>
                                 {({ state, setState }) => (
                                   <DropdownButton id='left'
                                     drop={direction}
-                                    variant=""
-                                    title={<div key={item._id}
+                                    variant="" */}
+                                    {/* title={ */}
+                                    <div key={item._id}
+                                      // onClick={() => {
+
+                                      //   axios.get(host + `api/v1/cat/get/?section_id=${item._id}`)
+                                      //     .then(res => {
+                                      //       console.log(res.data.category);
+
+                                      //       setState({
+                                      //         cat: res.data.category
+                                      //       })
+
+                                      //     })
+                                      //     .catch(err => {
+                                      //       console.log('error:' + err);
+                                      //     })
+
+
+
+                                      // }}
                                       onClick={() => {
+                                        localStorage.setItem("type", item.name)
+                                       
+                                       window.location.href = `/AllCategory?section_id=${item._id}&&type=${item.name}`;
 
-                                        axios.get(host + `api/v1/cat/get/?section_id=${item._id}`)
-                                          .then(res => {
-                                            console.log(res.data.category);
-
-                                            setState({
-                                              cat: res.data.category
-                                            })
-
-                                          })
-                                          .catch(err => {
-                                            console.log('error:' + err);
-                                          })
-
-
-
-                                      }} >
+                                      }}
+                                       >
                                       <div id='navsaradirection1'>
-                                        <img src={'https://www.orothe.com/api/v1/' + item.logo} id='navsectionlogo' alt='offer' />
+                                     <div>   <img src={'https://www.orothe.com/api/v1/' + item.logo} id='navsectionlogo' alt='offer' /></div>
                                         {/* <img src={require('./sss.png')} id='navsectionlogo'  />  */}
-                                        <span style={{ marginLeft: '5px' }}>   {item.name}     </span>
+                                        <div style={{ marginRight: '5px' }}>   {item.name}     </div>
                                       </div>
-                                    </div>}
-                                    // id={`dropdown-button-drop-${direction}`}
-                                    key={direction}
-                                  >
-                                    <div id='selectscroll'>
+                                    </div>
+                                    {/* } */}
+                                   {/* id={`dropdown-button-drop-${direction}`}
+                                     key={direction} */}
+                                  {/* > */}
+                                    {/* <div id='selectscroll'>
                                       {state.cat.map(((item1, i) =>
 
                                         <Dropdown.Item key={i} >
@@ -280,11 +289,11 @@ class Nav2 extends React.Component {
                                           <div onClick={() => {
                                             window.location.href = `/profile?id=${item1._id}`;
 
-                                          }} >
+                                          }} > */}
 
 
 
-                                            <p id='left1' key={item1._id} >{item1.name} </p>
+                                            {/* <p id='left1' key={item1._id} >{item1.name} </p>
 
 
 
@@ -293,12 +302,12 @@ class Nav2 extends React.Component {
 
                                       ))}
                                     </div>
-                                  </DropdownButton>
-                                )}
+                                  </DropdownButton> */}
+                                {/* )} */}
 
-                              </Component>
-                            ))}
-                          </ButtonToolbar>
+                              {/* </Component> */}
+                            {/* ))} */}
+                          {/* </ButtonToolbar> */}
 
                         </div>
 
@@ -314,7 +323,7 @@ class Nav2 extends React.Component {
 
 
                   <Link to='./' id="contact"> الرئيسية </Link>
-
+<div id='provnav'>
                   <Popover
                     content={
                       <Pane
@@ -356,7 +365,7 @@ class Nav2 extends React.Component {
                       id='hh'
                     />
                   </Popover>
-
+                  </div>
                 </div>
 
 

@@ -34,7 +34,7 @@ import Context from './context';
       return (
         <Context.Consumer>{ctx => {
           return (
-        <Carousel
+        <Carousel id='indeslidess'
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
