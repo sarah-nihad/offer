@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import './task.css';
-import { Row, Col, Form,Button} from 'react-bootstrap';
-import { TextInput,  toaster, FilePicker} from 'evergreen-ui';
-// import DatePicker from "react-datepicker";
+import { Row, Col, Form, Button } from 'react-bootstrap';
+import { TextInput, toaster, FilePicker } from 'evergreen-ui';
 import axios from 'axios';
 import host from '../component/host';
 import "react-datepicker/dist/react-datepicker.css";
@@ -21,11 +19,17 @@ class Addprofile extends Component {
       SelctCardName: 'Select',
       SelectCateName: 'Select',
       name: '',
-      pass: (''),
-      pass1: (''), phone: (''), mail: (''), page: ('')
-      , file: []
-      , date: (''), startDate: new Date(),
-      rest: '', location: '', section_id: '',
+      pass: '',
+      pass1: '',
+      phone: '',
+      mail: '',
+      page: '',
+      file: [],
+      date: '',
+      startDate: new Date(),
+      rest: '',
+      location: '',
+      section_id: '',
       category_id: '',
       description: '',
       cards_id: '',
@@ -57,19 +61,19 @@ class Addprofile extends Component {
       data: formData,
       headers: headers
     })
-    .then(response => {
-      //delete the chosen item
-      console.log(cards_id);
-      console.log(this.state.data1)
-      const filteredData = this.state.data1.filter(item => item._id !== cards_id)
-      this.setState({
-        data1: filteredData
-      })
+      .then(response => {
+        //delete the chosen item
+        // console.log(cards_id);
+        console.log(this.state.data1)
+        const filteredData = this.state.data1.filter(item => item._id !== cards_id)
+        this.setState({
+          data1: filteredData
+        })
 
-      //fetch 
-      toaster.success('Profile has been added successfully');
-      //console.log(response)
-    })
+        //fetch 
+        toaster.success('Profile has been added successfully');
+        //console.log(response)
+      })
       .catch(function (error) {
         console.log(error.response.data)
         if (error.response) {
@@ -95,15 +99,15 @@ class Addprofile extends Component {
       data: formData,
       headers: headers
     })
-    .then(response => {
-      //delete the chosen item
-      console.log(this.state._id)
+      .then(response => {
+        //delete the chosen item
+        // console.log(this.state._id)
 
 
-      //fetch 
-      // toaster.success('Notification has been send successfully');
-      //console.log(response)
-    })
+        //fetch 
+        toaster.success('Notification has been send successfully');
+        //console.log(response)
+      })
       .catch(function (error) {
         console.log(error.response.data)
         if (error.response) {
@@ -129,15 +133,15 @@ class Addprofile extends Component {
       data: formData,
       headers: headers
     })
-    .then(response => {
-      //delete the chosen item
-      console.log(this.state._id)
+      .then(response => {
+        //delete the chosen item
+        // console.log(this.state._id)
 
 
-      //fetch 
-      toaster.success('Description has been Added successfully');
-      //console.log(response)
-    })
+        //fetch 
+        toaster.success('Description has been Added successfully');
+        //console.log(response)
+      })
       .catch(function (error) {
         console.log(error.response.data)
         if (error.response) {
@@ -163,13 +167,13 @@ class Addprofile extends Component {
       data: formData,
       headers: headers
     })
-    .then(response => {
+      .then(response => {
 
-      console.log(this.state._id)
+        // console.log(this.state._id)
 
-      toaster.success('Menu has been Added successfully');
+        toaster.success('Menu has been Added successfully');
 
-    })
+      })
       .catch(function (error) {
         console.log(error.response.data)
         if (error.response) {
@@ -186,7 +190,7 @@ class Addprofile extends Component {
 
     axios.get(host + 'api/v1/cat/', { headers: { token: cookies.get("token") } })
       .then(res1 => {
-        console.log(res1.data)
+        // console.log(res1.data)
         this.setState({
           data: res1.data
         })
@@ -198,30 +202,12 @@ class Addprofile extends Component {
 
 
 
-
-
-
-
-
-
-
   }
 
-
-
-
-
-
-
   getCateById() {
-    const { category_id } = this.state
-    let formData = new FormData();
-    var headers = {
-      "Content-Type": "application/json",
-      token: cookies.get("token")
-    };
 
-    console.log(this.state.category_id);
+
+    // console.log(this.state.category_id);
 
     axios.get(host + `api/v1/card/get/?category_id=${this.state.category_id}`, { headers: { token: cookies.get("token") } })
       .then(res => {
@@ -271,7 +257,7 @@ class Addprofile extends Component {
                   {/* <Form.Label>State</Form.Label> */}
                   <Form.Control as="select" onChange={(e) => {
                     if (e.target.value !== 'select') {
-                      console.log(e.target.value)
+                      // console.log(e.target.value)
                       this.setState({ category_id: e.target.value })
                       setTimeout(() => {
                         this.getCateById()
@@ -285,23 +271,13 @@ class Addprofile extends Component {
                     {this.state.data.map(((item, i) =>
 
 
-                      <option key={i} value={item._id} key={item._id}    >{item.name}</option>
+                      <option key={i} value={item._id} >{item.name}</option>
 
                     ))}
                   </Form.Control>
                 </Form.Group>
 
               </div>
-
-
-
-
-
-
-
-
-
-
 
 
               {!this.state.wait ? (
@@ -331,7 +307,7 @@ class Addprofile extends Component {
 
                     </Form.Control>
                   </Form.Group> */}
-  
+
 
 
                   <Row style={{ marginRight: '0px' }} className="justify-content-md-center" id="row1">
@@ -348,18 +324,8 @@ class Addprofile extends Component {
                           }} />
                       </div>
 
-
-
-
-
-
-
-
                     </Col>
                     <Col id='cc' sm="12" lg="6" >
-
-
-
                       <div id='d1'>
 
                         <p >Insert Menu :</p>
@@ -374,15 +340,6 @@ class Addprofile extends Component {
 
 
                       </div>
-
-
-
-
-
-
-
-
-
 
 
                     </Col>
@@ -408,31 +365,20 @@ class Addprofile extends Component {
               <Button variant="outline-danger" id='blogin'
                 onClick={() => this.login()}>Add Card</Button>
             </Col> */}
-            <Col xs={12} md={6} xl={4}   id="t1" >
+            <Col xs={12} md={6} xl={4} id="t1" >
               <Button variant="outline-danger" id='blogin'
                 onClick={() => this.Descrip()}>Add Description</Button>
             </Col>
-            <Col xs={12} md={6} xl={4}   id="t1" >
-            <Button variant="outline-danger" id='blogin'
-              onClick={() => this.Menu()}>Add Menu</Button>
+            <Col xs={12} md={6} xl={4} id="t1" >
+              <Button variant="outline-danger" id='blogin'
+                onClick={() => this.Menu()}>Add Menu</Button>
 
-</Col>
+            </Col>
 
-            <Col xs={12} md={6} xl={4}  id="t1" >
-              <Button  variant="outline-danger" id='blogin'
+            <Col xs={12} md={6} xl={4} id="t1" >
+              <Button variant="outline-danger" id='blogin'
                 onClick={() => this.noti()}>Send Notification</Button>
             </Col> </Row>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

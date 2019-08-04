@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Login1 from './component/Login1';
 import Login from './component/Login';
+import Login2 from './component/Login2';
 import Context from './component/context';
+import NotFound from './component/notfound';
 import Si from './Dashbord/Si';
-import './component/nav1.css';
+import './assets/css/nav1.css';
+import './assets/css/task.css';
 import Profile from './component/Profile';
 import AllCategory from './component/AllCategory'
 import Maincard from './component/Maincard';
@@ -36,15 +39,14 @@ class App extends Component {
       spin2: true,
       spin3: true,
       spin4: true,
-
+      redirect: false,
     }
 
   }
-
-
   componentDidMount() {
 
-    axios.get(host + 'api/v1/admin/checkadmin', { headers: { token: cookies.get("token") } })
+    if (cookies.get("token")) {
+      axios.get(host + 'api/v1/admin/checkadmin', { headers: { token: cookies.get("token") } })
       .then(res => {
 
         if (res.data.isAdmin === true) {
@@ -53,12 +55,17 @@ class App extends Component {
       })
       .catch(err => {
         this.setState({ auth: false })
+       
         console.log('error:' + err);
       })
+    }else{
+      this.setState({ auth: false })
+    }
+
 
     axios.get(host + 'api/v1/banner/')
       .then(res => {
-        //console.log(res.data.banner)
+      //  console.log(res.data.banner)
         if (res.status === 200) {
           this.setState({
             datas: res.data.banner,
@@ -75,7 +82,6 @@ class App extends Component {
 
     axios.get(host + 'api/v1/card/new')
       .then(res => {
-        console.log(res.data.new)
         this.setState({
           data: res.data.new,
           spin1: false
@@ -144,28 +150,20 @@ class App extends Component {
   render() {
     return (
       <div>
-
-
-
         <BrowserRouter>
           <Context.Provider value={{
             value: this.state,
             action: {
-
-
-
             }
           }}>
-
-
-
             <Route exact path='/' component={Maincard} />
             <Route path='/POS' component={POS} />
             <Route path='/Login' component={Login} />
             <Route path='/Login1' component={Login1} />
+            <Route path='/Login2' component={Login2} />
             <Route path='/Profile' component={Profile} />
             <Route path='/AllCategory' component={AllCategory} />
-
+            <Route path='/NotFound' component={NotFound} />
             <Switch>
               <Route path='/Home' component={Si} />
               <Route path='/Addsection' component={Si} />

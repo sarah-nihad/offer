@@ -1,11 +1,7 @@
 import React from 'react';
-import './task.css';
 import { Row, Col, Form } from 'react-bootstrap';
 import {  toaster} from 'evergreen-ui';
-// import DatePicker from "react-datepicker";
 import axios from 'axios';
-// import Component from '@reactions/component';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
 import host from '../component/host';
 import "react-datepicker/dist/react-datepicker.css";
 import Cookies from 'universal-cookie';
@@ -21,16 +17,21 @@ class Ratingdescription extends  React.Component{
       type: '',
       hot_deal:'',
       type_value:'',
-      type:'',
       licenseDate: '',
       SelctCardName: 'Select',
       SelectCateName: 'Select',
       name: '',
-      pass: (''),
-      pass1: (''), phone: (''), mail: (''), page: ('')
-      , file: []
-      , date: (''), startDate: new Date(),
-      rest: '', location: '', section_id: '',
+      pass: '',
+      pass1: '', 
+      phone: '',
+       mail: '', 
+       page: '',
+      file: [],
+       date: '',
+        startDate: new Date(),
+      rest: '',
+       location: '', 
+       section_id: '',
       category_id: '',
 
       cards_id: '',
@@ -95,7 +96,7 @@ class Ratingdescription extends  React.Component{
 
     axios.get(host + 'api/v1/cat/', { headers: { token: cookies.get("token") } })
       .then(res1 => {
-        console.log(res1.data)
+        // console.log(res1.data)
         this.setState({
           data: res1.data
         })
@@ -123,18 +124,15 @@ class Ratingdescription extends  React.Component{
 
 
   getCateById() {
-    const { category_id } = this.state
-    let formData = new FormData();
-    var headers = {
-      "Content-Type": "application/json",
-      token: cookies.get("token")
-    };
+   
+   
 
-    console.log(this.state.category_id);
+
+    // console.log(this.state.category_id);
 
     axios.get(host + `api/v1/eval/get/?category_id=${this.state.category_id}`, { headers: { token: cookies.get("token") } })
       .then(res => {
-         console.log(res.data.evals)
+        //  console.log(res.data.evals)
         this.setState({
           data1: res.data.evals,
           wait: false
@@ -174,7 +172,7 @@ class Ratingdescription extends  React.Component{
                   {/* <Form.Label>State</Form.Label> */}
                   <Form.Control as="select" onChange={(e) => {
                     if (e.target.value !== 'select') {
-                      console.log(e.target.value)
+                      // console.log(e.target.value)
                       this.setState({ category_id: e.target.value })
                       setTimeout(() => {
                         this.getCateById()
@@ -188,7 +186,7 @@ class Ratingdescription extends  React.Component{
                     {this.state.data.map(((item ,i)=>
 
 
-                      <option  key={i} value={item._id} key={item._id}    >{item.name}</option>
+                      <option  key={i} value={item._id}   >{item.name}</option>
 
                     ))}
                   </Form.Control>

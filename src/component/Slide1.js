@@ -1,71 +1,34 @@
-import React,{Component} from 'react';
-import {Carousel} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Carousel } from 'react-bootstrap';
 
 import Context from './context';
 // class ControlledCarousel extends Component {
-    class Slide1 extends Component{
-   
-    constructor(props, context) {
-      super(props, context);
-  
-      this.handleSelect = this.handleSelect.bind(this);
-  
-      this.state = {
-        index: 0,
-        direction: null,
-        data:[],
-     
-      
-       
-      };
-    
-    }
-    
-    handleSelect(selectedIndex, e) {
-      this.setState({
-        index: selectedIndex,
-        direction: e.direction,
-      });
-    }
-  
-    render() {
-      const { index, direction } = this.state;
-  
-      return (
-        <Context.Consumer>{ctx => {
-          return (
-        <Carousel id='indeslidess'
-          activeIndex={index}
-          direction={direction}
-          onSelect={this.handleSelect}
-        >
-          {ctx.value.datas.map((item =>
-     
-       
-          <Carousel.Item>
-            
-               <div id='ss'>
-            <img  src={'https://www.orothe.com/api/v1/'+item.Image}  id='imgslid' alt='offer' /> 
-  {/* <img src={require('./350.jpg')} id='imgslid' />   */}
+class Slide1 extends Component {
+  render() {
 
-            <Carousel.Caption>
-            <div>{item.description}</div>
-              <h3>{item.name}</h3>
-           
-            </Carousel.Caption>
-            </div>
-          </Carousel.Item>
-        
-           ))}
-         
-        </Carousel>
-           )
-          }}
+    return (
+      <Context.Consumer>{ctx => {
+        return (
+          <div style={{ width: '100%', height: 'auto' }}>
+            <Carousel>
+              {ctx.value.datas.map((item,i) =>
+                <Carousel.Item key={i}>
+                  <img src={'https://www.orothe.com/api/v1/' + item.Image} style={{ width: '100%' }} alt='img' />
+                  <Carousel.Caption>
+                    <div>{item.description}</div>
+                    <h3>{item.name}</h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              )}
+            </Carousel>
+          </div>
+        )
+      }}
 
-          </Context.Consumer>
-      );
-    }
+      </Context.Consumer>
+    );
   }
-  
+}
+
 //   render(<ControlledCarousel />);
-  export default Slide1;
+export default Slide1;

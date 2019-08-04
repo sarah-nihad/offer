@@ -6,7 +6,6 @@ import Foot1 from './Foot1';
 import Nav2 from './Nav2';
 import Context from './context';
 import {Row,Col} from  'react-bootstrap';
-import StarRatings from 'react-star-ratings';
 class AllCategory extends Component{
     constructor(){
         super();
@@ -47,7 +46,7 @@ class AllCategory extends Component{
         axios.get(host+`api/v1/cat/get/?section_id=${myParam}` )
        
         .then(res=>{
-          console.log(res.data)
+          // console.log(res.data)
           this.setState({
             cat: res.data.category,
             section_type:type
@@ -79,11 +78,11 @@ class AllCategory extends Component{
                 <Nav2 />
                 <div id='most'>
               <p id='box'>
-              <img src={require('./coof.png')} id='imgress3' style={this.state.section_type === 'كافيه' ?  {display:''} : { display:'none'}  } /> 
-              <img src={require('./food.png')} id='imgress3' style={this.state.section_type === 'غذائية' ?  {display:''} : { display:'none'}  } /> 
-              <img src={require('./chef.png')} id='imgress3' style={this.state.section_type === 'مطاعم' ?  {display:''} : { display:'none'}  } /> 
-              <img src={require('./cup.png')} id='imgress3' style={this.state.section_type === 'حلويات' ?  {display:''} : { display:'none'}  } /> 
-              <img src={require('./med.png')} id='imgress3' style={this.state.section_type === 'صيدليات' ?  {display:''} : { display:'none'}  } /> 
+              <img src={require('../assets/img/coof.png')} id='imgress3' style={this.state.section_type === 'كافيه' ?  {display:''} : { display:'none'}  } alt='img'/> 
+              <img src={require('../assets/img/food.png')} id='imgress3' style={this.state.section_type === 'غذائية' ?  {display:''} : { display:'none'}  } alt='img'/> 
+              <img src={require('../assets/img/chef.png')} id='imgress3' style={this.state.section_type === 'مطاعم' ?  {display:''} : { display:'none'}  } alt='img'/> 
+              <img src={require('../assets/img/cup.png')} id='imgress3' style={this.state.section_type === 'حلويات' ?  {display:''} : { display:'none'}  } alt='img'/> 
+              <img src={require('../assets/img/med.png')} id='imgress3' style={this.state.section_type === 'صيدليات' ?  {display:''} : { display:'none'}  } alt='img'/> 
                {this.state.section_type}
               
 

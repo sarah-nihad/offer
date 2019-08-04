@@ -38,12 +38,10 @@ class Recommend extends Component {
                     }}>
 
                       <div className="container">
-                        {console.log('https://www.orothe.com/api/v1/' + item.logo)
-                        }
                         {/* <img src={require('./asdf.png')} id='img1' /> */}
                         <img src={'https://www.orothe.com/api/v1/' +  item.logo} id='img1' alt='offer' />
                         <div className="text-block">
-                          <div id='off'>{   item.type_value}   <img src={require('./d.png')} id='imgoff' alt='offer' /></div>
+                          <div id='off'>{   item.type_value}   <img src={require('../assets/img/d.png')} id='imgoff' alt='offer' /></div>
                         </div>
                       </div>
 

@@ -1,28 +1,19 @@
 
 import React from 'react';
-import './task.css';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-
-// import Context from '../Context';
-// import Login from '../login/login';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
-
 import Addcard from './Addcard';
-// import Border_all from '@material-ui/icons/Border_all';
-
 import { Navbar,Nav } from 'react-bootstrap';
-
 import { Popover, Pane, Avatar } from 'evergreen-ui';
-
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'
 import Cookies from 'universal-cookie';
@@ -48,54 +39,54 @@ const cookies = new Cookies();
 function rendericon(props) {
 
   if (props.match.path === '/Addcompany') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Addrecomnd') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
 else if (props.match.path === '/Addsection') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Addcard') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
  else if (props.match.path === '/Addbanner') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Addprofile') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Resturant') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Section1') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Description') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Addusers') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Category1') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Allcard') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
 
   else if (props.match.path === '/Allbanner') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   
   else if (props.match.path === '/Ratingdescription') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Addpos') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
   else if (props.match.path === '/Allrecomnd') {
-    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'></i></Link>)
+    return ( <Link to='./Home' id='ll'> <i className="fas fa-arrow-circle-left" id='ic'/></Link>)
   }
 }
 
@@ -132,7 +123,7 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing (3),
   },
 });
 
@@ -180,7 +171,7 @@ class ResponsiveDrawer extends React.Component {
                       </Nav>
 <div id='sarahdash76h'>
 <Link to='/'>
-                      <img src={require('./poerd by.png')} id='poerdsrAA' />
+                      <img src={require('../assets/img/poerd by.png')} id='poerdsrAA' alt='img' />
                   </Link>
                         <div id='ss'>
                     <div id='p1' style={{color:'black'}}>Logout</div> 
@@ -202,7 +193,7 @@ class ResponsiveDrawer extends React.Component {
               }
             >
               <Avatar
-                 src={require('./d.jpg' )} 
+                 src={require('../assets/img/d.jpg' )} 
                 name=""
                 size={30}
                 id='hh'
@@ -242,8 +233,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-star" ></i>
-                      </ListItemIcon>
+         
                       <ListItemText ><span style={{ color: 'white', fontWeight: '500',fontSize:'15px'}}>Rating</span></ListItemText>
                     </ListItem>
 
@@ -254,8 +244,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-star" ></i>
-                      </ListItemIcon>
+                   
                       <ListItemText ><span style={{ color: 'white', fontWeight: '500',fontSize:'15px'}}> Description</span></ListItemText>
                     </ListItem>
 
@@ -265,8 +254,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30,fontSize:'16px' }}>  <i className="far fa-id-badge" ></i>
-                      </ListItemIcon>
+                      
                       <ListItemText ><span style={{ color: 'white', fontWeight: '500',fontSize:'15px'}}> profile Info.</span></ListItemText>
                     </ListItem>
 
@@ -276,8 +264,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
-                      </ListItemIcon>
+                    
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>Section</span></ListItemText>
                     </ListItem>
 
@@ -288,8 +275,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
-                      </ListItemIcon>
+                     
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Category</span></ListItemText>
                     </ListItem>
 
@@ -299,8 +285,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
-                      </ListItemIcon>
+                      
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Recommnd</span></ListItemText>
                     </ListItem>
 
@@ -311,8 +296,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button >
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="far fa-credit-card" ></i>
-                      </ListItemIcon>
+                     
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Card</span></ListItemText>
                     </ListItem>
 
@@ -323,8 +307,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  <i className="fas fa-table" ></i>
-                      </ListItemIcon>
+                      
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Banner</span></ListItemText>
                     </ListItem>
 
@@ -336,8 +319,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}> <i class="far fa-plus-square"></i>
-                      </ListItemIcon>
+                    
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>اضافة نقاط بيع </span></ListItemText>
                     </ListItem>
 
@@ -353,8 +335,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}> <i class="fas fa-user-plus"></i>
-                      </ListItemIcon>
+                  
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Add Users</span></ListItemText>
                     </ListItem>
 
@@ -390,8 +371,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="fas fa-star" ></i>        </ListItemIcon>
+                      
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Rating</span></ListItemText>
                     </ListItem>
 
@@ -401,8 +381,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="fas fa-star" ></i>        </ListItemIcon>
+                     
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}> Description</span></ListItemText>
                     </ListItem>
 
@@ -413,8 +392,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30,fontSize:'18px' }}>  
-                       <i className="far fa-id-badge" ></i>        </ListItemIcon>
+                  
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}> profile Info.</span></ListItemText>
                     </ListItem>
 
@@ -426,8 +404,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="fas fa-table" ></i>        </ListItemIcon>
+                
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Section</span></ListItemText>
                     </ListItem>
 
@@ -439,8 +416,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="fas fa-table" ></i>        </ListItemIcon>
+                   
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>Category</span></ListItemText>
                     </ListItem>
 
@@ -451,8 +427,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="fas fa-table" ></i>        </ListItemIcon>
+                   
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>Recommnd</span></ListItemText>
                     </ListItem>
 
@@ -466,8 +441,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="far fa-credit-card" ></i>        </ListItemIcon>
+            
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px' }}>Card</span></ListItemText>
                     </ListItem>
 
@@ -478,8 +452,7 @@ class ResponsiveDrawer extends React.Component {
                   <List style={{padding:0}}>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                       <i className="fas fa-table" ></i>        </ListItemIcon>
+                   
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>Banner</span></ListItemText>
                     </ListItem>
 
@@ -492,8 +465,7 @@ class ResponsiveDrawer extends React.Component {
                   <List>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                      <i className="far fa-plus-square"></i>       </ListItemIcon>
+          
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>اضافة نقاط بيع</span></ListItemText>
                     </ListItem>
 
@@ -509,8 +481,7 @@ class ResponsiveDrawer extends React.Component {
                   <List>
 
                     <ListItem button>
-                      <ListItemIcon style={{ color: 'white', paddingLeft: 30 }}>  
-                      <i className="fas fa-user-plus"></i>       </ListItemIcon>
+         
                       <ListItemText ><span style={{ color: 'white',fontWeight: '500',fontSize:'15px'}}>Add Users</span></ListItemText>
                     </ListItem>
 
@@ -543,7 +514,9 @@ class ResponsiveDrawer extends React.Component {
               }
               else{
                 return (
-                <img src={require('./_food.gif')}  style={{width:'100%',height:'100vh'}} alt='gif'/>
+                  <div style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',height:'100vh'}}>
+                <img src={require('../assets/img/_food.gif')}   alt='gif'/>
+                </div>
                 )
               }
             }

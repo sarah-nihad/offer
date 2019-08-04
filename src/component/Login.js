@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import './nav1.css';
 import {Row,Col} from 'react-bootstrap';
 import {TextInput,toaster} from 'evergreen-ui';
 import host from './host';
@@ -47,10 +46,10 @@ import Cookies from 'universal-cookie';
          .then(response => {
           toaster.success('تم تسجيل الدخول بنجاح');
 
-console.log(response)
+// console.log(response)
          })
          .catch(function (error) {
-           console.log(error.response.data)
+          //  console.log(error.response.data)
            if (error.response) {
              toaster.danger('قم بأدخال رقم الموبايل و الباسورد');
            }

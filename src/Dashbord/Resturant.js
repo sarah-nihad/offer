@@ -1,21 +1,24 @@
 import React,{Component} from 'react';
-import './task.css';
 import {Table} from 'react-bootstrap';
 import host from '../component/host';
 import axios from 'axios';
 import StarRatings from 'react-star-ratings';
 import Cookies from 'universal-cookie';
  const cookies =new Cookies();
-// const host='https://tab3.herokuapp.com/';
+
 
 class Resturant extends Component{
   constructor(){
     super();
     this.state={
-      data:[],name:'',email:'',
-      phone:'',licenseDate:'',
-      address:'', uptime:'',page_name:'',
+      data:[],
+      name:'',
+      email:'',
+      phone:'',
+      licenseDate:'',
+      address:'', 
       uptime:'',
+      page_name:'',
       location:'',
       description:'',
       starts:'',
@@ -29,7 +32,8 @@ class Resturant extends Component{
 
     componentDidMount(){  
         axios.get(host +'api/v1/cat/rating' ,{headers:{ token: cookies.get("token") }})
-        .then(res=>{console.log(res.data)
+        .then(res=>{
+          // console.log(res.data)
           this.setState({
             data:res.data
          

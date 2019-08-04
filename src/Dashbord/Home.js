@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './task.css';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';

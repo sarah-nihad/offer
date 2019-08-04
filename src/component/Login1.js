@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Dashbord/task.css';
+
 import { TextInput, Button} from 'evergreen-ui';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
@@ -52,7 +52,7 @@ class Login extends Component {
        {/* <div> */}
         <Row style={{ marginRight: '0px' }} className="justify-content-md-center">
           <Col id="colimg" xs={12} md={12} lg={12}>
-            <img src={require('./poerd by.png')} id="img" alt='offer' />
+            <img src={require('../assets/img/poerd by.png')} id="img" alt='offer' />
           </Col></Row>
 <div id='logindashbord2sar'>
 
@@ -69,7 +69,7 @@ class Login extends Component {
               <form>
                
 <div id='loginame'>
-<img src={require('./d.jpg')} id="imglog" alt='offer' />
+<img src={require('../assets/img/d.jpg')} id="imglog" alt='offer' />
 
                   <p></p>
                   <TextInput id='sro3531'
@@ -93,7 +93,7 @@ class Login extends Component {
   </div>
              
                 <div id='login'>
-                <Button appearance="" intent="warning" id='blogin'
+                <Button  intent="warning" id='blogin'
                   onClick={(e) => {
                     this.login(e)
 
